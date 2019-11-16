@@ -1,0 +1,1 @@
+@extends('ppdb.layouts.index')

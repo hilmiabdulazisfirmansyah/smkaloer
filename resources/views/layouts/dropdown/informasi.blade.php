@@ -1,0 +1,9 @@
+<a class="dropdown-item text-light bg-dark" href="#">PPDB</a>
+<a class="dropdown-item text-light bg-dark" href="#">PRAKERIN</a>
+<a class="dropdown-item text-light bg-dark" href="#">KURIN</a>
+<a class="dropdown-item text-light bg-dark" href="#">PTS/PAS</a>
+<a class="dropdown-item text-light bg-dark" href="#">USBN/UNBK</a>
+<a class="dropdown-item text-light bg-dark" href="#">USBN/UNBK</a>
+<a class="dropdown-item text-light bg-dark" href="#">UJIKOM</a>
+<a class="dropdown-item text-light bg-dark" href="#">PIP</a>
+<a class="dropdown-item text-light bg-dark" href="/bkk">BKK</a>
