@@ -9,36 +9,21 @@ class KecamatanTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
-    {
+    public function run(){
 
-    	$kabupaten = DB::table('kabupaten')->get('id');
+        $kecamatan = Storage::disk('local')->get('kecamatan.json');
+        $kecamatan = json_decode($kecamatan, true);
 
-    	function kecamatan($id_kab){
-    		$url = 'http://dev.farizdotid.com/api/daerahindonesia/provinsi/kabupaten/'.$id_kab.'/kecamatan';
-    		$curl = curl_init();
-    		curl_setopt($curl, CURLOPT_URL, $url);
-    		curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-    		$result = curl_exec($curl);
-    		curl_close($curl);
-    		$result = json_decode($result, true);
-    		$kecamatan = $result['kecamatans'];
-    		return $kecamatan;
-    	}
+        foreach ($kecamatan as $kec) {
+            
+            DB::table('kecamatan')->insert([
+                'kode_wilayah' => $kec['kode_wilayah'],
+                'nama' => $kec['nama']
 
-    	foreach ($kabupaten as $kab){
-    		$id_kab = $kab->id;
-    		
-    		foreach (kecamatan($id_kab) as $kec){
+            ]);
 
-    			DB::table('kecamatan')->insert([
-    				'id' => $kec['id'],
-    				'id_kabupaten' => $kec['id_kabupaten'],
-    				'nama_kecamatan' => $kec['nama']
-    			]);
-    		}
+        }
 
-    	}
 
 
     }

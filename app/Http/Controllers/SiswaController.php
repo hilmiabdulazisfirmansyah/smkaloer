@@ -7,6 +7,7 @@ use App\Siswa;
 use App\User;
 use Mail;
 use App\Mail\verifyEmail;
+use Illuminate\Support\Str;
 
 class SiswaController extends Controller
 {
@@ -31,9 +32,16 @@ class SiswaController extends Controller
         // dapodik, maka user akan di daftarkan
         // dan mendapatkan verifikasi email
         // jika tidak sama maka user tidak akan didaftarkan
+        // 
         $nis = $request->input('nis');
-        $nipd = array_search($nis, array_column(siswa(), 'nis'));
-        if (!in_array($nis, siswa()[$nipd])) {
+        $y = siswa();
+        foreach ($y as $x) {
+            if ($x['nipd'] == $nis) {
+                $nipd = $x['nipd'];
+            }
+        }
+
+        if ($nis != $nipd) {
             return redirect('/')->with('gagal', 'nis yang anda masukkan tidak terdaftar di Dapodik jika terjadi kesalahan data segera hubungi operator sekolah');
         }else{
 
@@ -49,8 +57,8 @@ class SiswaController extends Controller
             $user->name = $username;
             $user->email = $request->email;
             $user->password = bcrypt($request->password);
-            $user->remember_token = str_random(60);
-            $user->verifyToken = str_random(60);
+            $user->remember_token = Str::random(60);
+            $user->verifyToken = Str::random(60);
             $user->save(); 
 
         //input data User dan registrasi User
@@ -74,6 +82,13 @@ class SiswaController extends Controller
                 'alamat_jalan' => ds_where($nis,'alamat_jalan'),
                 'rt' => ds_where($nis,'rt'),
                 'rw' => ds_where($nis,'rw'),
+                'kode_wilayah' => ds_where($nis,'kode_wilayah'),
+                'kode_pos' => ds_where($nis,'kode_pos'),
+                'lintang' => ds_where($nis,'lintang'),
+                'bujur' => ds_where($nis,'bujur'),
+                'desa_kelurahan' => ds_where($nis,'desa_kelurahan'),
+                'alat_transportasi_id' => ds_where($nis,'alat_transportasi_id'),
+                'anak_keberapa' => ds_where($nis,'anak_keberapa'),
                 'no_skhun' => ds_where($nis,'no_skhun'),
                 'no_peserta_ujian' => ds_where($nis,'no_peserta_ujian'),
                 'no_seri_ijazah' => ds_where($nis,'no_seri_ijazah'),
@@ -152,7 +167,7 @@ class SiswaController extends Controller
 
         $user_id->update($request->all());
 
-        return back();
+        return back()->with('sukses', 'Data Berhasil di perbaharui');
         // dd($request->all());
     }
 

@@ -1,60 +1,54 @@
 <?php
 
-function sekolah($param){
-   /*
-   *  sekolah_id
-   *  nama
-   *  nss
-   *  npsn
-   *  bentuk_pendidikan_id
-   *  alamat_jalan
-   *  rt
-   *  rw
-   *  nama_dusun
-   *  desa_kelurahan
-   *  kode_wilayah
-   *  kode_pos
-   *  lintang
-   *  bujur
-   *  nomor_telepon
-   *  nomor_fax
-   *  email
-   *  website
-   *  kebutuhan_khusus_id
-   *  status_sekolah
-   *  sk_pendirian_sekolah
-   *  tanggal_sk_pendirian_sekolah
-   *  status_kepemilikan_id
-   *  yayasan_id
-   *  sk_izin_operasional
-   *  tanggal_sk_izin_operasional
-   *  no_rekening
-   *  nama_bank
-   *  cabang_kcp_unit
-   *  rekening_atas_nama
-   *  mbs
-   *  kode_registrasi
-   *  npwp
-   *  nm_wp
-   *  keaktifan
-   *  flag
-   *  create_data
-   *  soft_delete
-   *  last_sync
-   *  updater_id
-   *  bentuk_pendidikan_id_str
-   *  kode_wilayah_str
-   *  kebutuhan_khusus_id_str
-   *  yayasan_id_str
-   *  vld_count
-    */
-   $url = 'http://192.168.100.98:5774/rest/sekolah';
+function sekolah(){
+  $username = 'dedeheryanto15@gmail.com';
+   $password = 'Samrat235';
+   $semester_id = '20191';
+
+   $url = 'http://smkaloerwargakusumah.sch.id:5774/login';
+   $url_guru = 'http://smkaloerwargakusumah.sch.id:5774/rest/sekolah';
+
+   $cookie = "cookie.txt";
+
+   $postfields = 'username=dedeheryanto15%40gmail.com&password=Samrat235&semester_id=20191';
+
    $curl = curl_init();
+
+   curl_setopt_array($curl, array(
+      CURLOPT_URL => $url,
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING => "",
+      CURLOPT_MAXREDIRS => 10,
+      CURLOPT_TIMEOUT => 0,
+      CURLOPT_FOLLOWLOCATION => true,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_COOKIEJAR => $cookie,
+      CURLOPT_COOKIEFILE => $cookie,
+      CURLOPT_POSTFIELDS => $postfields,
+      CURLOPT_POST => 1,
+      CURLOPT_REFERER => $url,
+      CURLOPT_HTTPHEADER => array(
+         "Content-Type: application/x-www-form-urlencoded",
+         "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36"
+      ),
+   ));
+
+   $response = curl_exec($curl);
+   $err = curl_error($curl);
+
+
+   $url = $url_guru;
    curl_setopt($curl, CURLOPT_URL, $url);
-   curl_setopt($curl, CURLOPT_HTTPHEADER, array("Cookie: killme=dont; PHPSESSID=6kn72k5cl8h1uosm1pcvlq7i5n; penugasan=oke"));
-   curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-   $result = curl_exec($curl);
+   curl_setopt($curl, CURLOPT_POST, 0);
+
+   $data = curl_exec($curl);
+
    curl_close($curl);
-   $result = json_decode($result, true);
-   return $result['rows'][0][$param];
+
+   if ($err) {
+      echo "cURL Error #:" . $err;
+   } else {
+      $data = json_decode($data, true);
+      return $data['rows'];
+   }
 }

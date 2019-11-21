@@ -1,12 +1,10 @@
 @php
 $provinsi = Storage::disk('local')->get('provinsi.json');
 $kabupaten = Storage::disk('local')->get('kabupaten.json');
-$kecamatan = Storage::disk('local')->get('kecamatan.json');
 $desa = Storage::disk('local')->get('desa.json');
 
 $provinsi = json_decode($provinsi, true);
 $kabupaten = json_decode($kabupaten, true);
-$kecamatan = json_decode($kecamatan, true);
 $desa = json_decode($desa, true);
 
 
@@ -19,13 +17,6 @@ foreach ($provinsi as $prov) {
 foreach ($kabupaten as $kab) {
 	if ($kab['id'] == $kabupaten_siswa) {
 		$kabupaten_siswa = $kab['nama_kabupaten'];
-	}
-}
-
-foreach ($kecamatan as $kec) {
-	if ($kec['id'] == $kecamatan_siswa) {
-		$kecamatan_siswa = $kec['nama_kecamatan'];
-		$id_kec = $kec['id'];
 	}
 }
 
@@ -96,7 +87,9 @@ foreach ($desa as $des) {
 		<tr>
 			<td>Kecamatan</td>
 			<td>
-				{{ $kecamatan_siswa }}
+				@foreach ( $kecamatan_siswa as $kec)
+					{{ $kec->nama }}
+				@endforeach
 			</td>
 		</tr>
 

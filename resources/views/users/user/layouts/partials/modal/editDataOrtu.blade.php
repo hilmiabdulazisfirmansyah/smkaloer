@@ -14,7 +14,7 @@
       </div>
       <div class="modal-body">
         <div class="modal-content-body">
-          .....
+          ...
         </div>
       </div>
       <div class="modal-footer">

@@ -15,6 +15,7 @@
 @include('scripts.ajaxSetup')
 @include('scripts.modal')
 @include('scripts.ajaxEventSelect')
+@include('scripts.ajaxEventSearch')
 @include('scripts.session')
 
 

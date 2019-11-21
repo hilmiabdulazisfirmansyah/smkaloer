@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Siswa;
 use App\Ortu;
+use DB;
 
 class DashboardController extends Controller
 {
@@ -35,8 +36,9 @@ class DashboardController extends Controller
 		$rw_siswa = auth()->user()->siswa->rw;
 		$provinsi_siswa = auth()->user()->siswa->id_provinsi;
 		$kabupaten_siswa = auth()->user()->siswa->id_kabupaten;
-		$kecamatan_siswa = auth()->user()->siswa->id_kecamatan;
-		$desa_siswa = auth()->user()->siswa->id_desa;
+		$kode_wilayah = auth()->user()->siswa->kode_wilayah;
+		$kecamatan_siswa = DB::table('kecamatan')->where('kode_wilayah', '=', $kode_wilayah)->get('nama');
+		$desa_siswa = auth()->user()->siswa->desa_kelurahan;
 
 		//DATA LAINNYA DARI SISWA
 		$asal_sekolah = auth()->user()->siswa->asal_sekolah;

@@ -7,7 +7,7 @@
 			<h5 class="widget-user-desc">{{auth()->user()->job_title}}</h5>
 		</div>
 		<div class="widget-user-image">
-			<img class="img-circle" src="{{auth()->user()->avatar}}" alt="User Avatar" style="height: 90px">
+			<img class="img-circle" src="{{auth()->user()->avatar}}" alt="User Avatar" style="height: 90px;cursor:pointer">
 		</div>
 
 		<div class="box-footer">

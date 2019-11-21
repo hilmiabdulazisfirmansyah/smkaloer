@@ -1,9 +1,9 @@
 <script type="text/javascript">
-$("#provinsi").on('change',function() {
-	var id_prov = $("#provinsi option:selected").val();
+	$("#kecamatan").on('change',function() {
+	var id_prov = $("#kecamatan").val();
 	$.ajax(
 	{
-		url: "{{ url('kabupaten') }}",
+		url: "{{ url('/kecamatan') }}",
 		type: "get",
 		data: { id_prov: id_prov},
 		success: function (data) {
@@ -11,5 +11,4 @@ $("#provinsi").on('change',function() {
 			$('#kabupaten').html('<option>Pilih Kabupaten</option>'+data);
 		}
 	});
-});
 </script>

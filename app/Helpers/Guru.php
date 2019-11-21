@@ -1,23 +1,33 @@
 <?php
 
 function guru(){
-	$username = 'dedeheryanto15@gmail.com';
-	$password = 'Samrat235';
-	$semester_id = '20191';
+	$ip_dapodik = '192.168.100.98';
 
-	$url = 'http://dapodik.smkaloerwargakusumah.sch.id:5774/login?username='.$username.'&password='.$password.'&semester_id='.$semester_id;
-
-
+	$url = 'http://'.$ip_dapodik.':5774/rest/Ptk?_dc=1574193396908&entry_sekolah_id=07275a29-4663-4642-bee0-823762714895&ptk_module=ptkterdaftar&tahun_ajaran_id=2019&jenis_gtk=guru&limit=1000000&penugasan_null=2&page=1&start=0';
+	$cookie = base_path("cookie.txt");
 
 	$curl = curl_init();
-	curl_setopt($curl, CURLOPT_URL, $url);
-	curl_setopt($curl, CURLOPT_HTTPHEADER, array('Key:'.$apikey, 'npsn:'.$npsn));
-	curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-	$result = curl_exec($curl);
+	curl_setopt_array($curl, array(
+		CURLOPT_URL => $url,
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_COOKIEFILE => $cookie,
+		CURLOPT_POST => 0,
+	));
+
+	$data = curl_exec($curl);
+	$err = curl_error($curl);
+
 	curl_close($curl);
 
-	return $result;
+	if ($err) {
+		echo "cURL Error #:" . $err;
+	} else {
+		$data = json_decode($data, true);
+		return $data['rows'];
+	}
 }
+
+
 
 function d_where($nik, $param)
 {

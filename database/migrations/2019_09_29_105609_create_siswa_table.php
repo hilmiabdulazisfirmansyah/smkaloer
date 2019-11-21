@@ -33,10 +33,16 @@ class CreateSiswaTable extends Migration
             $table->text('alamat_jalan');
             $table->string('rt');
             $table->string('rw');
+            $table->string('kode_wilayah')->nullable()->default(null);
+            $table->string('kode_pos')->nullable()->default(null);
+            $table->string('lintang')->nullable()->default(null);
+            $table->string('bujur')->nullable()->default(null);
+            $table->string('desa_kelurahan')->nullable()->default(null);
+            $table->string('alat_transportasi_id')->nullable()->default(null);
+            $table->string('anak_keberapa')->nullable()->default(null);
+            
             $table->string('id_provinsi')->nullable()->default(null);
             $table->string('id_kabupaten')->nullable()->default(null);
-            $table->string('id_kecamatan')->nullable()->default(null);
-            $table->string('id_desa')->nullable()->default(null);
             $table->string('no_skhun');
             $table->string('no_peserta_ujian');
             $table->string('no_seri_ijazah');

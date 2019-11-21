@@ -75,4 +75,8 @@ $("#btn-login-siswa").html("Login");
 $("#btn-regist-siswa").attr("id", "btn-login-siswa");
 }
 });
+
+$(".img-circle").click(function(){
+	$('#editAvatar').show();
+});
 </script>
