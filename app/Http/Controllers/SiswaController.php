@@ -34,12 +34,9 @@ class SiswaController extends Controller
         // jika tidak sama maka user tidak akan didaftarkan
         // 
         $nis = $request->input('nis');
-        $y = siswa();
-        foreach ($y as $x) {
-            if ($x['nipd'] == $nis) {
-                $nipd = $x['nipd'];
-            }
-        }
+
+        $siswa = Siswa::where('nipd', '=', $nis)->get()[0];
+        $nipd = $siswa['nipd'];
 
         if ($nis != $nipd) {
             return redirect('/')->with('gagal', 'nis yang anda masukkan tidak terdaftar di Dapodik jika terjadi kesalahan data segera hubungi operator sekolah');
@@ -49,13 +46,12 @@ class SiswaController extends Controller
             if ($user) {
                 return redirect('/')->with('gagal', 'Email yang anda gunakan Sudah Terdaftar');
             }
-            $username = ds_where($nis,'nama');
-            
             // User ID SISWA
             $user = new \App\User;
             $user->role = 'Siswa';
-            $user->name = $username;
+            $user->name = $siswa['nama'];
             $user->email = $request->email;
+            $user->job_title = 'Siswa';
             $user->password = bcrypt($request->password);
             $user->remember_token = Str::random(60);
             $user->verifyToken = Str::random(60);
@@ -63,51 +59,18 @@ class SiswaController extends Controller
 
         //input data User dan registrasi User
             $request->request->add(['user_id' => $user->id]);
-            DB::table('siswa')->insert([
-                'user_id' => $user->id,
-                'nis' => $nis,
-                'nik' => ds_where($nis,'nik'),
-                'nisn' => ds_where($nis,'nisn'),
-                'nama' => $username,
-                'no_kip' => ds_where($nis,'no_kip'),
-                'no_kks' => ds_where($nis,'no_kks'),
-                'nomor_telepon_seluler' => ds_where($nis,'nomor_telepon_seluler'),
-                'nik_ayah' => ds_where($nis,'nik_ayah'),
-                'nik_ibu' => ds_where($nis,'nik_ibu'),
-                'nik_wali' => ds_where($nis,'nik_wali'),
-                'jenis_kelamin' => ds_where($nis,'jenis_kelamin'),
-                'tempat_lahir' => ds_where($nis,'tempat_lahir'),
-                'tanggal_lahir' => ds_where($nis,'tanggal_lahir'),
-                'agama' => agama(ds_where($nis,'agama_id')),
-                'alamat_jalan' => ds_where($nis,'alamat_jalan'),
-                'rt' => ds_where($nis,'rt'),
-                'rw' => ds_where($nis,'rw'),
-                'kode_wilayah' => ds_where($nis,'kode_wilayah'),
-                'kode_pos' => ds_where($nis,'kode_pos'),
-                'lintang' => ds_where($nis,'lintang'),
-                'bujur' => ds_where($nis,'bujur'),
-                'desa_kelurahan' => ds_where($nis,'desa_kelurahan'),
-                'alat_transportasi_id' => ds_where($nis,'alat_transportasi_id'),
-                'anak_keberapa' => ds_where($nis,'anak_keberapa'),
-                'no_skhun' => ds_where($nis,'no_skhun'),
-                'no_peserta_ujian' => ds_where($nis,'no_peserta_ujian'),
-                'no_seri_ijazah' => ds_where($nis,'no_seri_ijazah'),
-                'sekolah_asal' => ds_where($nis,'sekolah_asal'),
-                'tanggal_masuk_sekolah' => ds_where($nis,'tanggal_masuk_sekolah'),
-                'ket_keluar' => ds_where($nis,'ket_keluar'),
-                'id_kelas' => ds_where($nis,'tingkat_pendidikan_id'),
-                'soft_delete' => ds_where($nis,'soft_delete'),
-                'created_at' => now(),
-            ]);
+            
+            Siswa::where('nip', $nis)
+                    ->update(['user_id' => $user->id, 'job_title' => $user->job_title]);
 
             DB::table('ortu')->insert([
                 'siswa_id' => $user->id,
-                'nama_ayah' => ds_where($nis, 'nama_ayah'),
-                'nama_ibu_kandung' => ds_where($nis, 'nama_ibu_kandung'),
-                'nama_wali' => ds_where($nis, 'nama_wali'),
-                'nik_ayah' => ds_where($nis, 'nik_ayah'),
-                'nik_ibu' => ds_where($nis, 'nik_ibu'),
-                'nik_wali' => ds_where($nis, 'nik_wali'),
+                'nama_ayah' => $siswa['nama_ayah'],
+                'nama_ibu_kandung' => $siswa['nama_ibu_kandung'],
+                'nama_wali' => $siswa['nama_wali'],
+                'nik_ayah' => $siswa['nik_ayah'],
+                'nik_ibu' => $siswa['nik_ibu'],
+                'nik_wali' => $siswa['nik_wali'],
                 'created_at' => now(),
             ]);
 
@@ -163,7 +126,7 @@ class SiswaController extends Controller
      */
     public function update(Request $request)
     {
-        $user_id = Siswa::findOrFail($request->user_id);
+        $user_id = Siswa::where('user_id', '=', $request->user_id);
 
         $user_id->update($request->all());
 

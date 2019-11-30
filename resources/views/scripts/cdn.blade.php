@@ -4,6 +4,9 @@ integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
 crossorigin="anonymous">
 </script>
 
+{{-- Alertify --}}
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.12.0/build/alertify.min.js"></script>
+
 {{-- popper --}}
 <script 
 
@@ -19,8 +22,11 @@ crossorigin="anonymous">
 src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
 	
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/0.8.1/cropper.min.js"></script>
+
 
 
 {{-- datepicker --}}
 <script src="{{'/air-datepicker/js/datepicker.js'}}"></script>
 <script src="{{'/air-datepicker/js/i18n/datepicker.en.js'}}"></script>
+

@@ -7,6 +7,7 @@ use App\User;
 use Mail;
 use App\Mail\verifyEmail;
 use DB;
+use Str;
 
 
 class GuruController extends Controller
@@ -35,14 +36,13 @@ class GuruController extends Controller
         // 
         $nik = $request->input('nik');
         $nikd = array_search($nik, array_column(guru(), 'nik'));
-        dd($nikd);
         if (!in_array($nik, guru()[$nikd])) {
-            return redirect('/')->with('gagal', 'NIK yang anda masukkan tidak terdaftar di Dapodik jika terjadi kesalahan data segera hubungi operator sekolah');
+            return redirect('/')->with('nik_tidak_terdaftar', 'NIK yang anda masukkan tidak terdaftar di Dapodik jika terjadi kesalahan data segera hubungi operator sekolah');
         }else{
 
             $user = User::where('email', $request->input('email'))->first();
             if ($user) {
-                return redirect('/')->with('gagal', 'Email yang anda gunakan Sudah Terdaftar');
+                return redirect('/')->with('email_sudah_terdaftar', 'Email yang anda gunakan Sudah Terdaftar');
             }
             $username = d_where($nik,'nama');
 
@@ -50,17 +50,19 @@ class GuruController extends Controller
             $user->role = 'Guru';
             $user->name = $username;
             $user->email = $request->email;
+            $user->job_title = 'Guru';
             $user->password = bcrypt($request->password);
-            $user->remember_token = str_random(60);
-            $user->verifyToken = str_random(60);
+            $user->remember_token = Str::random(60);
+            $user->verifyToken = Str::random(60);
             $user->save();
 
         //input data User dan registrasi User
-            $request->request->add(['user_id' => $user->id]);
+            $request->request->add(['user_id' => $user->id, 'user_role' => $user->role]);
             DB::table('guru')->insert([
                 'nik' => $nik,
                 'nama' => $username,
                 'user_id' => $user->id,
+                'job_title' => $user->role,
                 'jenis_kelamin' => d_where($nik,'jenis_kelamin'),
                 'tempat_lahir' => d_where($nik,'tempat_lahir'),
                 'tanggal_lahir' => d_where($nik,'tanggal_lahir'),
@@ -75,6 +77,7 @@ class GuruController extends Controller
                 'nama_suami_istri' => d_where($nik,'nama_suami_istri'),
                 'created_at' => now()
             ]);
+            
             $thisUser = User::findOrFail($user->id);
             $this->sendEmail($thisUser);
             return redirect(route('verifyEmail'));

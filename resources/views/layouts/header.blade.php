@@ -16,7 +16,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 {{-- icon bootstrap --}}
 <link rel="stylesheet" type="text/css" href="{{'/open-iconic-master/font/css/open-iconic-bootstrap.css'}}">
 
+{{-- Alertify --}}
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.12.0/build/css/alertify.min.css"/>
+<!-- Default theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.12.0/build/css/themes/default.min.css"/>
+<!-- Semantic UI theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.12.0/build/css/themes/semantic.min.css"/>
 
+<!-- CSS -->
 {{-- datepicker --}}
 <link href="{{'/air-datepicker/css/datepicker.css'}}" rel="stylesheet">
 @endsection

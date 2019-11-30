@@ -3,18 +3,19 @@
 @include('users.user.scripts.cdn')
 @include('scripts.ajaxSetup')
 @include('scripts.ajaxEventSelect')
+@include('scripts.session')
 
 <script>
-  $(document).ready(function () {
-    $('.sidebar-menu').tree()
-  })
+	$(document).ready(function () {
+		$('.sidebar-menu').tree();
+	})
 
-  $( function() {
-    $( ".ui-sortable" ).sortable();
-    $( ".ui-sortable" ).disableSelection();
-  });
+	$(function() {
+		$( ".ui-sortable" ).sortable();
+		$( ".ui-sortable" ).disableSelection();
+	});
 
-  $(function(){
+	$(function(){
 		$('#kecamatan').keyup(function(){
 			$('#listKecamatan').show();
 			var query = $("#kecamatan").val();
@@ -36,5 +37,28 @@
 		});
 	});
 
+// image upload
+$(function () {
+	var fileupload = $("#FileUpload1");
+	var filePath = $("#spnFilePath");
+	var image = $("#imgFileUpload");
+	image.click(function () {
+		fileupload.click();
+	});
+	fileupload.change(function () {
+		var fileName = $(this).val().split('\\')[$(this).val().split('\\').length - 1];
+		filePath.html("<b>Selected File: </b>" + fileName);
+	});
+});
+
+
+
 </script>
+
+@include('users.user.scripts.scriptsJobGuru')
+@include('users.user.scripts.scriptsKehadiran')
+@include('users/user/scripts/scriptsMapel')
+@include('users/user/scripts/scriptsRombel')
+@include('users/user/scripts/scriptsJadwal')
+
 @stop

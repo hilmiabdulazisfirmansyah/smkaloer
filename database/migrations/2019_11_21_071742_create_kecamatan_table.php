@@ -13,10 +13,10 @@ class CreateKecamatanTable extends Migration
      */
     public function up()
     {
-        Schema::create('kecamatan', function (Blueprint $table) {
-            $table->string('kode_wilayah');
-            $table->string('nama');
-        });
+        // Schema::create('kecamatan', function (Blueprint $table) {
+        //     $table->string('kode_wilayah');
+        //     $table->string('nama');
+        // });
     }
 
     /**
@@ -26,6 +26,6 @@ class CreateKecamatanTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kecamatan');
+        // Schema::dropIfExists('kecamatan');
     }
 }

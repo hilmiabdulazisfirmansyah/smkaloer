@@ -7,7 +7,7 @@
 
 				@foreach ($ortu_siswa as $ortu)
 				<td class="col-md-5">{{ $ortu->nama_ayah }}</td>
-				<td rowspan="3"><img class="profile-user-img img-responsive img-circle" src="https://demo1.smart-school.in/uploads/student_images/2father.jpg"></td>
+				<td rowspan="3"><img class="profile-user-img img-responsive img-circle" src="{{auth()->user()->avatar}}"></td>
 			</tr>
 			<tr>
 				<td>Nomor HP Ayah</td>
@@ -20,7 +20,7 @@
 			<tr>
 				<td>Nama Ibu</td>
 				<td>{{ $ortu->nama_ibu_kandung }}</td>
-				<td rowspan="3"><img class="profile-user-img img-responsive img-circle" src="https://demo1.smart-school.in/uploads/student_images/2mother.jpeg"></td>
+				<td rowspan="3"><img class="profile-user-img img-responsive img-circle" src="{{auth()->user()->avatar}}"></td>
 			</tr>
 			<tr>
 				<td>Nomor HP Ibu</td>
@@ -33,7 +33,7 @@
 			<tr>
 				<td>Nama Wali</td>
 				<td>{{ $ortu->nama_wali }}</td>
-				<td rowspan="3"><img class="profile-user-img img-responsive img-circle" src="https://demo1.smart-school.in/uploads/student_images/2guardian.jpg"></td>
+				<td rowspan="3"><img class="profile-user-img img-responsive img-circle" src="{{auth()->user()->avatar}}"></td>
 			</tr>
 			<tr>
 				<td>Email Wali</td>

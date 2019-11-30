@@ -5,4 +5,3 @@
 <i class="fa fa-download"></i>
 </a>
 </td>
-</tr>

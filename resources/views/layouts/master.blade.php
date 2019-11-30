@@ -22,8 +22,6 @@
 	<!-- container -->
 	<div class="container" id="content">
 		{{-- card info Pendaftaran --}}
-		@include('notif.success')
-		@include('notif.gagal')
 		@yield('content')
 		{{-- end card info Pendaftaran --}}
 	</div>

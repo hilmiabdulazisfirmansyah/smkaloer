@@ -43,7 +43,25 @@ class User extends Authenticatable implements MustVerifyEmail
     public function ortu(){
         return $this->hasOne(Ortu::class);
     }
+
     public function guru(){
         return $this->hasOne(Guru::class);
     }
+
+    public function alumni(){
+        return $this->hasOne(Alumni::class);
+    }
+
+    public function jumlah_kehadiran(){
+        return $this->hasOne(jumlah_kehadiran::class);
+    }
+
+    public function kehadiran_user(){
+        return $this->hasOne(kehadiran_user::class);
+    }
+
+    public function kehadiran(){
+        return $this->belongsToMany(Kehadiran::class);
+    }
+
 }
