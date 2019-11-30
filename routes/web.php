@@ -50,11 +50,55 @@ Route::POST('/users', 'LoginController@home');
 
 // Cek Login yang mengarah ke http://localhost/siswa
 // jika login sebagai siswa dia akan mengarah ke -> halaman siswa dengan menggunakan ID User role
-Route::group(['middleware' => ['auth','checkRole:Guru,Orang Tua Siswa,Siswa,Alumni']], function(){
+Route::group(['middleware' => ['auth','checkRole:Siswa,Guru']], function(){
 	Route::GET('/dashboard', 'DashboardController@dashboard');
+	Route::GET('/absensi/siswa', 'AbsensiController@siswa')->name('absensiSiswa');
 	Route::GET('/profile', 'DashboardController@profile');
-
 	Route::POST('/alamat', 'SiswaController@update');
+});
+
+Route::group(['middleware' => ['auth','checkRole:Guru']], function(){
+	Route::GET('/absensi/guru', 'AbsensiController@guru')->name('absensiGuru');
+	Route::GET('/verifikasi','AbsensiController@verifGuru')->name('verifikasiAbsensi');
+	Route::GET('/batalVerif','AbsensiController@batalVerifGuru')->name('verifikasiAbsensi');
+	Route::GET('/edit/{id}', 'AbsensiController@edit');
+	Route::POST('/update/kehadiran', 'AbsensiController@update');
+
+// Mata Pelajaran khusus job title Kurikulum
+	Route::GET('rombel', 'RombelController@index');
+	Route::POST('tambahRombel', 'RombelController@tambahRombel');
+	Route::GET('/editRombel/{id}', 'RombelController@editRombel');
+	Route::POST('/updateRombel/{id}', 'RombelController@updateRombel');
+	Route::GET('/deleteRombel/{id}', 'RombelController@deleteRombel');
+
+//Mata Pelajaran khusus job title Kurikulum
+	Route::GET('/mapel', 'MapelController@index');
+	Route::POST('/tambahMapel', 'MapelController@tambahMapel');
+	Route::GET('/editMapel/{id}', 'MapelController@editMapel');
+	Route::POST('/updateMapel/{id}', 'MapelController@updateMapel');
+	Route::GET('/deleteMapel/{id}', 'MapelController@deleteMapel');
+
+	Route::GET('jadwal', 'JadwalController@index');
+	Route::GET('getJadwal/{id}', 'JadwalController@getJadwal');
+	Route::POST('/tambahJadwal', 'JadwalController@tambahJadwal');
+	Route::GET('/editJadwal/{id}', 'JadwalController@editJadwal');
+	Route::POST('/updateJadwal/{id}', 'JadwalController@updateJadwal');
+	Route::GET('/deleteJadwal/{id}', 'JadwalController@deleteJadwal');
+
+// HRM / JobTitle
+	Route::GET('jobGuru', 'jobGuruController@index');
+	Route::POST('/tambahJobGuru', 'JobGuruController@tambahJobGuru');
+	Route::GET('/editJobGuru/{id}', 'JobGuruController@editJobGuru');
+	Route::POST('/updateJobGuru/{id}', 'JobGuruController@updateJobGuru');
+	Route::GET('/deleteJobGuru/{id}', 'JobGuruController@deleteJobGuru');
+
+// HRM Job SISWA
+	Route::GET('jobSiswa', 'jobSiswaController@index');
+	Route::POST('/tambahJobSiswa', 'JobSiswaController@tambahJobSiswa');
+	Route::GET('/editJobSiswa/{id}', 'JobSiswaController@editJobSiswa');
+	Route::POST('/updateJobSiswa/{id}', 'JobSiswaController@updateJobSiswa');
+	Route::GET('/deleteJobSiswa/{id}', 'JobSiswaController@deleteJobSiswa');
+
 });
 
 //Logout

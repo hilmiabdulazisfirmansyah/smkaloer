@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         '\App\Console\Commands\LoginDapodik',
+        '\App\Console\Commands\grabDapo',
     ];
 
     /**
@@ -24,7 +25,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('loginDapodik:siswa')->everyMinute();
+        $schedule->command('grab:dapodikLocal')->everyMinute();
+        $schedule->command('grab:dapodik')->everyMinute();
     }
 
     /**

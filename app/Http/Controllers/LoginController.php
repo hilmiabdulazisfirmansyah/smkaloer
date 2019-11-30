@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
+use App\User;
 
 class LoginController extends Controller
 {
@@ -33,10 +34,25 @@ class LoginController extends Controller
 					'avatar' => $avatar,
 					'link' => $link,
 					'role' => $role
-				]);
+				])->with('berhasil_login', 'Selamat Datang Di Sekolah Kami');
 		}
+
+		if(! Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')]))
+		{
+			return redirect('/')->with('email_belum_terdaftar', 'Email yang anda masukkan belum Terdaftar di SmartApp');
+			if(User::where('email', '=', $request->input('email')))
+			{
+				return redirect('/')->with('password_salah', 'Password yang anda masukkan Salah');
+			}
+
+			if(User::where('password', '=', $request->input('password')))
+			{
+				return redirect('/')->with('password_salah', 'Password yang anda masukkan Salah');
+			}
+		}
+
 		// jika tidak berhasil maka sistem akan menampilkan pesan Username dan Password yang anda masukkan salah
-		return redirect('/');
+
 	}
 
 	public function logout(){

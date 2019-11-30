@@ -17,7 +17,8 @@ title="Collapse">
 <!-- small box -->
 <div class="small-box bg-green">
 <div class="inner">
-<h3>95<sup style="font-size: 20px">%</sup></h3>
+
+<h3>{{ $persentase_hadir }}<sup style="font-size: 20px">%</sup></h3>
 
 <p>Hadir</p>
 </div>
@@ -32,7 +33,7 @@ title="Collapse">
 <!-- small box -->
 <div class="small-box bg-aqua">
 <div class="inner">
-<h3>3<sup style="font-size: 20px">%</sup></h3>
+<h3>{{ $persentase_sakit }}<sup style="font-size: 20px">%</sup></h3>
 
 <p>Sakit</p>
 </div>
@@ -47,7 +48,7 @@ title="Collapse">
 <!-- small box -->
 <div class="small-box bg-yellow">
 <div class="inner">
-<h3>2<sup style="font-size: 20px">%</sup></h3>
+<h3>{{ $persentase_izin }}<sup style="font-size: 20px">%</sup></h3>
 
 <p>Izin</p>
 </div>
@@ -62,7 +63,8 @@ title="Collapse">
 <!-- small box -->
 <div class="small-box bg-red">
 <div class="inner">
-<h3>0<sup style="font-size: 20px">%</sup></h3>
+
+<h3>{{ $persentase_alpha }}<sup style="font-size: 20px">%</sup></h3>
 
 <p>Alpha</p>
 </div>
@@ -76,31 +78,31 @@ title="Collapse">
 <!-- ./col -->
 <div class="col-lg-2 col-xs-8">
 <!-- small box -->
-<div class="small-box bg-red">
-<div class="inner" style="background-color: darkcyan">
-<h3>0<sup style="font-size: 20px">%</sup></h3>
+<div class="small-box bg-teal">
+<div class="inner bg-teal">
+<h3>{{ $persentase_bolos }}<sup style="font-size: 20px">%</sup></h3>
 <p>Bolos</p>
 </div>
 <div class="icon">
 <i class="ion ion-pie-graph"></i>
 </div>
-<a href="#" class="small-box-footer" style="background-color:#006b6b">Info Selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
+<a href="#" class="small-box-footer bg-teal-active">Info Selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
 </div>
 </div>
 <!-- ./col -->
 <!-- ./col -->
 <div class="col-lg-2 col-xs-8">
 <!-- small box -->
-<div class="small-box bg-red">
-<div class="inner" style="background-color: slategrey">
-<h3>0<sup style="font-size: 20px">%</sup></h3>
+<div class="small-box bg-purple">
+<div class="inner bg-purple">
+<h3>{{ $persentase_terlambat }}<sup style="font-size: 20px">%</sup></h3>
 
 <p>Terlambat</p>
 </div>
 <div class="icon">
 <i class="fa fa-bell"></i>
 </div>
-<a href="#" class="small-box-footer" style="background-color: #5a6875">Info Selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
+<a href="#" class="small-box-footer bg-purple-active">Info Selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
 </div>
 </div>
 <!-- ./col -->
@@ -108,7 +110,9 @@ title="Collapse">
 </div>
 <!-- /.box-body -->
 <div class="box-footer">
+<div class="callout callout-info text-center">
 Data Berikut diambil dari data siswa yang sudah melakukan Fingerprint
+</div>
 </div>
 <!-- /.box-footer-->
 </div>

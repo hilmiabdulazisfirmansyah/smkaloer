@@ -24,6 +24,8 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
+      @include('notif.success')
+      @include('notif.gagal')
       @include('users/user/layouts/content')
       <!-- /.content -->
     </div>
@@ -31,8 +33,8 @@
 
     @include('users/user/layouts/footer')
 
- <!-- ./wrapper -->
-@yield('script')
- 
-</body>
-</html>
+    <!-- ./wrapper -->
+    @yield('script')
+    
+  </body>
+  </html>

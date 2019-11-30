@@ -1,6 +1,6 @@
 <div class="content">
   <section class="content-header">
-    <b style="font-size:32px;text-transform: capitalize;">{{$judul}} {{$users}}</b> <small>Versi 0.1</small>
+    <b style="font-size:32px;text-transform: capitalize;">{{$judul}}</b> <small>Versi 0.1</small>
   </section>
   <ol class="breadcrumb" style="border-radius: 0px;border-bottom: 3px solid #ccc;background-color: teal;">
     <li><a href="#" style="color:white"><i class="fa fa-dashboard"></i> Home</a></li>

@@ -11,7 +11,7 @@ class LoginDapodik extends Command
      *
      * @var string
      */
-    protected $signature = 'loginDapodik:siswa';
+    protected $signature = 'grab:dapodikLocal';
 
     /**
      * The console command description.

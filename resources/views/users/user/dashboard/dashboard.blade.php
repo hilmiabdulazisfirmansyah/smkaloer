@@ -8,6 +8,7 @@
 @include('users/user/component/profile')
 </div>
 
+
 @if (auth()->user()->role == 'dev')
 <div class="col">
 <section class="col-lg-7 connectedSortable ui-sortable">

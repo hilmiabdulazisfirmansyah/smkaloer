@@ -8,4 +8,9 @@ class Alumni extends Model
 {
     protected $table = 'alumni';
     protected $guarded = ['_token', 'email', 'password'];
+
+    public function alumni(){
+		return $this->belongsTo(User::class);
+
+	}
 }

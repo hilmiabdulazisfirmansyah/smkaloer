@@ -15,7 +15,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             // ProvinsiTableSeeder::class,
             // KabupatenTableSeeder::class,
-            KecamatanTableSeeder::class,
+            // KecamatanTableSeeder::class,
+            // KehadiranTableSeeder::class
         ]);
     }
 }

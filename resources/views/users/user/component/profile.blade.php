@@ -7,7 +7,9 @@
 			<h5 class="widget-user-desc">{{auth()->user()->job_title}}</h5>
 		</div>
 		<div class="widget-user-image">
-			<img class="img-circle" src="{{auth()->user()->avatar}}" alt="User Avatar" style="height: 90px;cursor:pointer">
+			<img id="imgFileUpload" class="img-circle" src="{{auth()->user()->avatar}}" alt="User Avatar" style="height: 90px;cursor:pointer">
+			<span id="spnFilePath"></span>
+			<input type="file" id="FileUpload1" style="display: none" />
 		</div>
 
 		<div class="box-footer">
