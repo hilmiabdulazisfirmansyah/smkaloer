@@ -60,7 +60,7 @@ class SiswaController extends Controller
         //input data User dan registrasi User
             $request->request->add(['user_id' => $user->id]);
             
-            Siswa::where('nip', $nis)
+            Siswa::where('nipd', $nis)
                     ->update(['user_id' => $user->id, 'job_title' => $user->job_title]);
 
             DB::table('ortu')->insert([

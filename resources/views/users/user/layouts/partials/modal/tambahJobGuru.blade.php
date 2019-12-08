@@ -22,7 +22,7 @@
            <select class="form-control select2 JobGuruNama" style="width: 100%;"  tabindex="-1" aria-hidden="true" placeholder="Pilih Nama Guru" name="nama" id="jobGuruNama">
             <option value="default">Pilih Nama Guru :</option>
             @php
-            $guru = DB::table('guru')->get();
+            $guru = DB::table('guru')->orderBy('nama', 'asc')->get();
             @endphp
             @foreach ($guru as $daftarGuru)
             <option value="{{$daftarGuru->nama}}">{{$daftarGuru->nama}}</option>
@@ -35,7 +35,7 @@
           <select class="form-control select2 JobGuru" style="width: 100%;"  tabindex="-1" aria-hidden="true" placeholder="Pilih Tugas Tambahan" name="title" id="jobGuruTitle">
             <option value="default">Pilih Tugas Tambahan :</option>
             @php
-            $daftarjob = DB::table('job_title')->get();
+            $daftarjob = DB::table('job_title')->orderBy('nama', 'asc')->get();
             @endphp
             @foreach ($daftarjob as $job)
             <option value="{{$job->nama}}">{{$job->nama}}</option>

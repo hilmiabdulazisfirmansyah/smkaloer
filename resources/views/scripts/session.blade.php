@@ -12,6 +12,13 @@ alertify.success('Data Berhasil di perbaharui');
 </script>
 @endif
 
+@if(session('sukses_hapus_data'))
+<script type="text/javascript">
+alertify.set('notifier','position', 'top-center');
+alertify.error('Data Berhasil di hapus');
+</script>
+@endif
+
 @if(session('email_sudah_terdaftar'))
 <script type="text/javascript">	
 alertify.set('notifier','position', 'top-center');

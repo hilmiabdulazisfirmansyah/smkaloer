@@ -75,9 +75,9 @@ class AbsensiController extends Controller
 
 		$persentase_terlambat = ($skor_terlambat!=0 && $jumlah_kbm_efektif!=0)?($skor_terlambat/$jumlah_kbm_efektif):0;
 		$persentase_terlambat = Str::limit($persentase_terlambat, 2);
+		
 
-
-		return view('users.user.dashboard.absensi', compact(
+		return view('users.user.dashboard.absensi', compact([
 			'users',
 			'judul',
 			'kehadiran',
@@ -90,7 +90,7 @@ class AbsensiController extends Controller
 			'persentase_izin',
 			'persentase_bolos',
 			'persentase_terlambat',
-		));
+		]));
 	}
 
 	public function guru()
@@ -157,7 +157,7 @@ class AbsensiController extends Controller
 		$persentase_terlambat = Str::limit($persentase_terlambat, 2);
 
 
-		return view('users.user.dashboard.absensi', compact(
+		return view('users.user.dashboard.absensi', compact([
 			'users',
 			'judul',
 			'kehadiran',
@@ -171,7 +171,7 @@ class AbsensiController extends Controller
 			'persentase_izin',
 			'persentase_bolos',
 			'persentase_terlambat',
-		));
+		]));
 	}
 
 	public function verifGuru(Request $request)
@@ -202,6 +202,10 @@ class AbsensiController extends Controller
         $user_id->update($request->all());
 
         return back()->with('sukses', 'Data Berhasil di perbaharui');
+	}
+
+	public function getKehadiranGuru(Request $request){
+		return view('users.user.data.absensi.absensiSiswa');
 	}
 
 }

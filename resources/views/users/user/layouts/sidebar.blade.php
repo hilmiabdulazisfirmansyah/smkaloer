@@ -83,7 +83,7 @@ $nama = substr($nama,0, 18);
 
 @endif
 
-@if (auth()->user()->job_title == 'Kepala Sekolah' || 'Wali Kelas')
+@if (auth()->user()->job_title == 'Kepala Sekolah' || auth()->user()->job_title == 'Wali Kelas')
 <li class="treeview" style="height:auto;">
 <a href="#">
 <i class="fa fa-group"> </i> <span>HRM</span>
@@ -114,6 +114,31 @@ $nama = substr($nama,0, 18);
 </li>
 </ul>
 @endif
+
+
+</li>
+
+@endif
+
+
+@if (auth()->user()->job_title == 'EDP' || auth()->user()->job_title == 'Toolsman' || auth()->user()->job_title == 'Teknisi Jaringan')
+<li class="treeview" style="height:auto;">
+<a href="#">
+<i class="glyphicon glyphicon-wrench"> </i> <span>Settings</span>
+<span class="pull-right-container">
+<i class="fa fa-angle-left pull-right"></i>
+</span>
+</a>
+
+
+<ul class="treeview-menu" style="display: none;">
+<li>
+<a href="{{ url('finger') }}">
+<i class="glyphicon glyphicon-hdd"></i>
+<span>Fingerprint</span>
+</a>
+</li>
+</ul>
 
 
 </li>

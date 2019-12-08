@@ -1,7 +1,7 @@
 <?php
 
 function sekolah(){
-  $url = 'http://36.72.32.134:5774/rest/sekolah';
+  $url = 'http://192.168.100.98:5774/rest/sekolah';
   $cookie = base_path("cookie.txt");
 
   $curl = curl_init();

@@ -1,7 +1,7 @@
 <?php
 
 function grabDapo(){
-	$ip_dapodik = '36.72.32.134';
+	$ip_dapodik = '192.168.100.98';
 	$username = 'dedeheryanto15@gmail.com';
 	$password = 'Samrat235';
 	$semester_id = '20191';
@@ -40,7 +40,7 @@ function grabDapo(){
 }
 
 function loginDapodikSiswa(){
-	$ip_dapodik = '36.72.32.134';
+	$ip_dapodik = '192.168.100.98';
 	$username = 'dedeheryanto15@gmail.com';
 	$password = 'Samrat235';
 	$semester_id = '20191';
@@ -79,7 +79,7 @@ function loginDapodikSiswa(){
 
 function siswa()
 {
-	$ip_dapodik = '36.72.32.134';
+	$ip_dapodik = '192.168.100.98';
 	$url = 'http://'.$ip_dapodik.':5774/rest/PesertaDidik?_dc=1573411993332&sekolah_id=07275a29-4663-4642-bee0-823762714895&pd_module=pdterdaftar&limit=100&ascending=nama&page=1&start=600';
 
 	$cookie = base_path("cookie.txt");

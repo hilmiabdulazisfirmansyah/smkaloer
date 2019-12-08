@@ -1,5 +1,5 @@
 <script type="text/javascript">
-	
+
 //verifikasi absensi
 $(document).on('click', '#verifikasi', function(e){
 	e.preventDefault();

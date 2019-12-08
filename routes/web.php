@@ -14,9 +14,17 @@
 //
 // Route untuk Halaman Awal
 Route::GET('/', 'BlogController@index')->name('home');
+
 Route::GET('test', function(){
 	return view('blog.test');
 });
+
+Route::GET('finger', 'FingerprintController@index');
+Route::POST('finger/getDevice', 'FingerprintController@getDevice');
+Route::POST('finger/getUser', 'FingerprintController@getUser');
+Route::POST('finger/delUser', 'FingerprintController@delUser');
+Route::POST('finger/setUser', 'FingerprintController@setUser');
+
 Route::GET('/sejarah', 'BlogController@sejarah');
 Route::GET('/visi', 'BlogController@visi');
 Route::GET('/tav', 'BlogController@tav');
@@ -63,6 +71,7 @@ Route::group(['middleware' => ['auth','checkRole:Guru']], function(){
 	Route::GET('/batalVerif','AbsensiController@batalVerifGuru')->name('verifikasiAbsensi');
 	Route::GET('/edit/{id}', 'AbsensiController@edit');
 	Route::POST('/update/kehadiran', 'AbsensiController@update');
+	Route::GET('getKehadiranGuru', 'AbsensiController@getKehadiranGuru');
 
 // Mata Pelajaran khusus job title Kurikulum
 	Route::GET('rombel', 'RombelController@index');
