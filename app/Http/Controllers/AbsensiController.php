@@ -7,12 +7,21 @@ use Illuminate\Http\Request;
 use App\Guru;
 use App\Ortu;
 use App\User;
+use App\Siswa;
 use App\kehadiran_user;
 use DB;
 use Str;
 
 class AbsensiController extends Controller
 {
+	public function index(){
+		//get data siswa
+		$kehadiran_siswa = kehadiran_user::get();
+		$nama_siswa = Siswa::get(['user_id','nama']);
+
+		return response()->json(['kehadiran_siswa' => $kehadiran_siswa, 'nama_siswa' => $nama_siswa]);
+
+	}
 	public function siswa()
 	{
 		$judul = 'Absensi';
@@ -106,7 +115,9 @@ class AbsensiController extends Controller
 		$kehadiran = User::find($user_id);
 		$kehadiran_guru = $kehadiran->kehadiran_user;
 
-		$kehadiran_siswa = User::where('role', '=', 'Siswa')->get();
+		$daftar_siswa = User::where('role', '=', 'Siswa')->get();
+		$kehadiran_siswa = kehadiran_user::where('role', '=', 'Siswa')->get();
+
 
 		if ($kehadiran_guru == null) {
 			$kehadiran_guru = 'kosong';
@@ -162,6 +173,7 @@ class AbsensiController extends Controller
 			'judul',
 			'kehadiran',
 			'nama',
+			'daftar_siswa',
 			'kehadiran_siswa',
 			'kehadiran_guru',
 			'nama_kehadiran',

@@ -1,7 +1,7 @@
 <?php
 
 function grabDapo(){
-	$ip_dapodik = '192.168.100.98';
+	$ip_dapodik = '192.168.100.6';
 	$username = 'dedeheryanto15@gmail.com';
 	$password = 'Samrat235';
 	$semester_id = '20191';
@@ -40,7 +40,7 @@ function grabDapo(){
 }
 
 function loginDapodikSiswa(){
-	$ip_dapodik = '192.168.100.98';
+	$ip_dapodik = '192.168.100.6';
 	$username = 'dedeheryanto15@gmail.com';
 	$password = 'Samrat235';
 	$semester_id = '20191';
@@ -79,7 +79,7 @@ function loginDapodikSiswa(){
 
 function siswa()
 {
-	$ip_dapodik = '192.168.100.98';
+	$ip_dapodik = '192.168.100.6';
 	$url = 'http://'.$ip_dapodik.':5774/rest/PesertaDidik?_dc=1573411993332&sekolah_id=07275a29-4663-4642-bee0-823762714895&pd_module=pdterdaftar&limit=100&ascending=nama&page=1&start=600';
 
 	$cookie = base_path("cookie.txt");
@@ -189,4 +189,52 @@ function getListDesa($id_kecamatan=null){
 		}
 	}
 	return $result;
+}
+
+function kehadiran($kehadiran_id){
+	switch ($kehadiran_id) {
+		case '0':
+		echo "<span class='badge bg-red'>Alpha</span>";
+		break;
+
+		case '1':
+		echo "<span class='badge bg-green'>Hadir</span>";
+		break;
+
+		case '2':
+		echo "<span class='badge bg-blue'>Sakit</span>";
+		break;
+
+		case '3':
+		echo "<span class='badge bg-yellow'>Izin</span>";
+		break;
+
+		case '4':
+		echo "<span class='badge bg-grey'>Bolos</span>";
+		break;
+
+		case '5':
+		echo "<span class='badge bg-purple'>Terlambat</span>";
+		break;
+		
+		default:
+		echo "";
+		break;
+	}
+}
+
+function verif($status){
+	switch($status){
+		case 'Belum Di Verifikasi':
+			echo "<span class='badge bg-red'>Belum Di Verifikasi</span>";	
+		break;
+
+		case 'Sudah Di Verifikasi':
+			echo "<span class='badge bg-red'>Belum Di Verifikasi</span>";	
+		break;
+
+		default:
+			echo "";
+		break;
+	}
 }

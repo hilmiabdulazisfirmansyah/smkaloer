@@ -1,4 +1,6 @@
 <!-- jQuery 3 -->
+<script src="{{ url('js/app.js') }}"></script>
+
 <script src="/lte/bower_components/jquery/dist/jquery.min.js"></script>
 {{-- Alertify --}}
 <!-- Bootstrap 3.3.7 -->

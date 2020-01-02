@@ -1,8 +1,11 @@
 <?php
 
+$url 	= 'http://192.168.100.6:5774/rest/Ptk?_dc=1577896635970&entry_sekolah_id=07275a29-4663-4642-bee0-823762714895&ptk_module=ptkterdaftar&tahun_ajaran_id=2019&jenis_gtk=tendik&limit=25&penugasan_null=2&page=1&start=0';
+$grab 	= backup_guru($url);
 
+$select = DB::connection('mysql3')->table('tanah')->exists();
 
-
+dd($select);
 
 //$url= 'http://110.136.104.230:1746/api/pengguna?kandidat=99&tahun=2019&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTEwLjEzNi4xMDQuMjMwOjE3NDYvYXBpL2xvZ2luIiwiaWF0IjoxNTc0OTg3MzA0LCJuYmYiOjE1NzQ5ODczMDQsImp0aSI6InVGQjlVSVE2aGRMcGtFVDIiLCJzdWIiOiIxMDNlNmE1Yy1hNGYyLTRiNTQtYjVjNy04YmFkNGQ3MDNjMTkiLCJwcnYiOiJhMjgzZmM5MTZmYTE0YzQwZGRiZTU5MzE0MWExNjcxNjMxNzNkYTg0In0.x1Non29ZJGR193lyz_3P79Zh9AtPLjfpH8T3r0D_cqc&start=20&limit=700&keyword=&peran=99&sekolah_id=07275a29-4663-4642-bee0-823762714895';
 
@@ -123,7 +126,6 @@ function setData(){
 
 }
 
-dd(getDevice());
 
 ?>
 

@@ -1,13 +1,13 @@
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use App\Events\WebsocketDemoEvent;
 
 class BlogController extends Controller
 {
 	
 	public function index()
 	{
-		// UserAuth() di folder app/Helpers/Blog.php
 		return view('blog.home', UserAuth());
 	}
 	public function sejarah()

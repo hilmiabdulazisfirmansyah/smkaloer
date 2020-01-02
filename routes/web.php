@@ -19,11 +19,10 @@ Route::GET('test', function(){
 	return view('blog.test');
 });
 
-Route::GET('finger', 'FingerprintController@index');
-Route::POST('finger/getDevice', 'FingerprintController@getDevice');
-Route::POST('finger/getUser', 'FingerprintController@getUser');
-Route::POST('finger/delUser', 'FingerprintController@delUser');
-Route::POST('finger/setUser', 'FingerprintController@setUser');
+Route::GET('backup/dapodik', 'BackupController@index');
+Route::GET('backup/dapodik/{param}', 'BackupController@dapodik');
+
+Route::GET('sync/dapodik','SyncController@dapodik');
 
 Route::GET('/sejarah', 'BlogController@sejarah');
 Route::GET('/visi', 'BlogController@visi');
@@ -108,7 +107,16 @@ Route::group(['middleware' => ['auth','checkRole:Guru']], function(){
 	Route::POST('/updateJobSiswa/{id}', 'JobSiswaController@updateJobSiswa');
 	Route::GET('/deleteJobSiswa/{id}', 'JobSiswaController@deleteJobSiswa');
 
+	Route::GET('finger', 'FingerprintController@index');
+	Route::POST('finger/getDevice', 'FingerprintController@getDevice');
+	Route::POST('finger/getUser', 'FingerprintController@getUser');
+	Route::POST('finger/delUser', 'FingerprintController@delUser');
+	Route::POST('finger/setUser', 'FingerprintController@setUser');
+	
 });
+	Route::GET('/chats', 'ChatsController@index');
+	Route::GET('/messages', 'ChatsController@fetchMessages');
+	Route::POST('/messages', 'ChatsController@sendMessage');
 
 //Logout
 Route::GET('/logout', 'LoginController@logout');

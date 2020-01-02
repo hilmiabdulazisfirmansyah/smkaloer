@@ -11,4 +11,5 @@
 			$('#kabupaten').html('<option>Pilih Kabupaten</option>'+data);
 		}
 	});
+});
 </script>

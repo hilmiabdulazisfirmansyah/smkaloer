@@ -18,7 +18,13 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        // halaman login untuk siswa
+
+    }
+
+    public function getNamaSiswa($user_id)
+    {
+        $nama_siswa = Siswa::where('id', '=', $user_id)->get('nama');
+        return $nama_siswa;
     }
 
     /**
