@@ -13,10 +13,7 @@
 				<div class="form-group">
 					@csrf
 					<select name="ip" class="form-control">
-<<<<<<< HEAD
 						<option>Pilih Fingerprint</option>
-=======
->>>>>>> 67f4089ac00f9a0a874c5c888387493d215ec299
 						<option value="{{$dev->server_IP}}">{{$dev->nama_finger}}</option>
 						<input type="hidden" name="port" value="{{$dev->server_port}}">
 						<input type="hidden" name="sn" value="{{$dev->device_sn}}">

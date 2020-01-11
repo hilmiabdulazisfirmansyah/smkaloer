@@ -27,8 +27,6 @@ Route::GET('backup/dapodik', 'BackupController@index');
 Route::GET('backup/dapodik/{param}', 'BackupController@dapodik');
 
 Route::GET('sync/dapodik/{param}','SyncController@dapodik');
-<<<<<<< HEAD
-=======
 Route::GET('sync/fingerprint','SyncController@finger');
 
 Route::GET('export/{param}','ExportController@index');
@@ -39,7 +37,6 @@ Route::GET('export/fingerprint/siswa/{param}','ExportController@export_fingerpri
 Route::GET('import/{param}','ImportController@index');
 Route::GET('import/fingerprint/{role}','ImportController@import_fingerprint');
 Route::POST('import/fingerprint/siswa/{param}','ImportController@import_fingerprint_siswa');
->>>>>>> 67f4089ac00f9a0a874c5c888387493d215ec299
 
 Route::GET('/sejarah', 'BlogController@sejarah');
 Route::GET('/visi', 'BlogController@visi');

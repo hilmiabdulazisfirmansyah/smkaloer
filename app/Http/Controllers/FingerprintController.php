@@ -36,10 +36,6 @@ class FingerprintController extends Controller
 		$port = $request->port;
 		$url = $request->ip.'/user/all/paging';
 		$data = webservice($port,$url,$parameter);
-<<<<<<< HEAD
-		dd($data);
-=======
->>>>>>> 67f4089ac00f9a0a874c5c888387493d215ec299
 		return $data;
 	}
 
@@ -54,35 +50,6 @@ class FingerprintController extends Controller
 	}
 
 	public function setUser(Request $request){
-<<<<<<< HEAD
-// test
-// $data = $request->all();
-// return $data;
-
-		// $device = Finger::all();
-		$listSiswa = Siswa::all();
-	// INPUT DATA SISWA 
-	// dari Database Sekolah 				-> Database Finger
-	// dari tabel siswa 
-	// 	- nipd							-> tb_user(pin) & tb_template(pin + alg_ver = 39)
-	// 	- nama (substr 5) strtoupper	-> tb_user(nama) 
-		set_time_limit(6000);
-		foreach ($listSiswa as $siswa) {
-			$nama_siswa = strtoupper(substr($siswa->nama, 0, 15));
-			DB::connection('mysql2')->table('tb_user')->insert(['pin' => $siswa->id, 'nama' => $nama_siswa]);
-			DB::connection('mysql2')->table('tb_template')->insert(['pin' => $siswa->id, 'alg_ver' => 39]);
-		}
-
-		$port = 80;
-		$url = 'localhost/index.php?m=content&p=user';
-		$parameter = 'i_pagingGet=&i_pagingSet=1000&b_SetAllUser=Set+All+User&i_setUser=&i_delUser=';
-		webservice($port,$url,$parameter);
-
-		return 'sukses';
-	}
-
-	
-=======
 		$sn = Finger::where('No', '=', $request->id)->get()->first()->device_sn;
 		$database = DB::connection('fingerprint')->table('tb_user')->get();
 
@@ -102,5 +69,4 @@ class FingerprintController extends Controller
 		
 		return 'sukses';
 	}
->>>>>>> 67f4089ac00f9a0a874c5c888387493d215ec299
 }

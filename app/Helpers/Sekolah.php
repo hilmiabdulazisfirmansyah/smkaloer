@@ -134,9 +134,6 @@ function sync_dapodik($url, $data){
   } else {
     echo $response;
   }
-<<<<<<< HEAD
-}
-=======
 }
 
 function getTemplate($pinT){
@@ -153,4 +150,3 @@ function getTemplate($pinT){
   }
   return ($header.$content.$footer);
 }
->>>>>>> 67f4089ac00f9a0a874c5c888387493d215ec299
