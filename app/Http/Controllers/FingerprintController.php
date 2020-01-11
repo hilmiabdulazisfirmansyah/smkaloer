@@ -70,3 +70,4 @@ class FingerprintController extends Controller
 		return 'sukses';
 	}
 }
+//test
