@@ -3,8 +3,12 @@
 
 @section('content')
 
-@if (auth()->user()->role == 'Guru')
+@if (auth()->user()->role == 'Guru' && auth()->user()->job_title == '' || auth()->user()->job_title =='Guru Piket')
 @include('users.user.layouts.partials.modal.editKehadiranSiswa')
+@endif
+
+@if (auth()->user()->role == 'Guru' && auth()->user()->job_title == 'Kepala Sekolah' || auth()->user()->job_title == 'Guru Piket')
+@include('users.user.layouts.partials.modal.editKehadiranGuru')
 @endif
 
 @include('users.user.dashboard.datahadir')

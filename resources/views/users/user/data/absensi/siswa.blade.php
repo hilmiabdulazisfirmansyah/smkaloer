@@ -8,7 +8,7 @@
 <tr role="row" class="odd">
 	<td class="sorting_1 text-center">{{ $loop->iteration}}</td>
 
-	<td class="text-center">{{ $kehadiran->created_at }}</td>
+	<td class="text-center">{{ $kehadiran->created_at->toDateString() }}</td>
 
 
 	@php

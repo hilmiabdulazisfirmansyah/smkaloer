@@ -1,10 +1,4 @@
 <script type="text/javascript">
-	$(document).ready(function() {
-		$('.tambahUserFinger').select2();
-		$('#cekUserFinger').attr("disabled", true);
-	});
-
-
 	$(document).on('click', '#cekFinger', function(e){
 		e.preventDefault();
 		var id = $(this).data('id');
@@ -55,16 +49,14 @@
 		e.preventDefault();
 		$('#storeDataFinger').html('<i class="fa fa-spin fa-refresh"></i>  <i>sedang Menambahkan data . . .</i>');
 
+		var id = $(this).data('id');
+
 		$.ajax({
 			url: '{{ url('finger/setUser') }}',
 			type: 'POST',
+			data:{id:id},
 			success: function(data){
-				if (data == 'sukses') {
-					$('#storeDataFinger').children("i").remove();
-					$('#storeDataFinger').html('<span class="label label-success">Success</span> <span class="label label-info"> Data Berhasil Di Tambahkan </span>');
-				}else{
-					$('#storeDataFinger').html('<span class="label label-danger">Error</span>');
-				}
+				console.log(data);
 			}
 		});
 	})
@@ -80,4 +72,34 @@
 		}
 
 	})
+
+	$(document).on('click', '#cekUserFinger', function(e){
+		e.preventDefault();
+		var id = $(this).data('id');
+		$('#jmlUserFinger2').html('<i class="fa fa-spin fa-refresh"></i> <i>sedang mengambil data User . . .</i>');
+
+		$.ajax({
+			url: '{{ url('finger/getUser') }}',
+			type: 'POST',
+			data: {id:id},
+			dataType: 'json',
+			success: function(data){
+				console.log(data);
+			}
+		});
+	})
+
+	$(document).on('click', '#syncFinger', function(e){
+		e.preventDefault();
+		$.ajax({
+			url: '{{ url('sync/fingerprint') }}',
+			type: 'GET',
+			success: function(data){
+				$('.progress-bar').attr('aria-valuemax', data.max);
+				for (var i = 0; i < data.percent; i++) {
+					$('.progress-bar').css('width', i+'%');
+				}
+			}
+		});
+	});
 </script>

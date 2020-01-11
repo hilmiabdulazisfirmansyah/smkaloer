@@ -32,7 +32,7 @@ class FingerprintController extends Controller
 	}
 
 	public function getUser(Request $request){
-		$parameter = 'sn='.$request->sn;
+		$parameter = 'sn='.$request->sn.'&limit=1000';
 		$port = $request->port;
 		$url = $request->ip.'/user/all/paging';
 		$data = webservice($port,$url,$parameter);
@@ -50,31 +50,23 @@ class FingerprintController extends Controller
 	}
 
 	public function setUser(Request $request){
-// test
-// $data = $request->all();
-// return $data;
+		$sn = Finger::where('No', '=', $request->id)->get()->first()->device_sn;
+		$database = DB::connection('fingerprint')->table('tb_user')->get();
 
-		// $device = Finger::all();
-		$listSiswa = Siswa::all();
-	// INPUT DATA SISWA 
-	// dari Database Sekolah 				-> Database Finger
-	// dari tabel siswa 
-	// 	- nipd							-> tb_user(pin) & tb_template(pin + alg_ver = 39)
-	// 	- nama (substr 5) strtoupper	-> tb_user(nama) 
-		set_time_limit(600);
-		foreach ($listSiswa as $siswa) {
-			$nama_siswa = strtoupper(substr($siswa->nama, 0, 15));
-			DB::connection('mysql2')->table('tb_user')->insert(['pin' => $siswa->id, 'nama' => $nama_siswa]);
-			DB::connection('mysql2')->table('tb_template')->insert(['pin' => $siswa->id, 'alg_ver' => 39]);
+		foreach ($database as $data) {
+			set_time_limit(5000);
+			$upPin = $data->pin;
+			$upNama = $data->nama;
+			$upPwd = $data->pwd;
+			$upRfid = $data->rfid;
+			$upPriv = $data->privilege;
+			$upTemp = getTemplate($upPin);
+			$upTemp = str_replace("+","%2B",$upTemp);
+			$parameter = "sn=".$sn."&pin=".$upPin."&nama=".$upNama."&pwd=".$upPwd."&rfid=".$upRfid."&priv=".$upPriv."&tmp=".$upTemp;
+			$url = "192.168.100.8/user/set";
+			$server_output = webservice(7005,$url,$parameter);
 		}
-
-		$port = 88;
-		$url = 'localhost/index.php?m=content&p=user';
-		$parameter = 'i_pagingGet=&i_pagingSet=1000&b_SetAllUser=Set+All+User&i_setUser=&i_delUser=';
-		webservice($port,$url,$parameter);
-
+		
 		return 'sukses';
 	}
-
-	
 }

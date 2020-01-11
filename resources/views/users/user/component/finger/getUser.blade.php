@@ -7,21 +7,23 @@
 		</div>
 		<!-- /.box-header -->
 		<div class="box-body">
-			<div class="form-group">
-				<label>Device ID</label>
-				<form>
+			<form>
+				@foreach ($device as $dev)
+				<div class="form-group">
+					<label>Device ID</label>
 					<select id="selectCekUserFinger" name="ip" class="form-control">
-						<option value="0">Pilih Fingerprint</option>
-						@foreach ($device as $dev)
 						<option value="{{$dev->server_IP}}">{{$dev->nama_finger}}</option>
 						<input type="hidden" name="port" value="{{$dev->server_port}}">
 						<input type="hidden" name="sn" value="{{$dev->device_sn}}">
-						@endforeach
 					</select>
+				</div>
+				<div class="form-group">
+					<span style="float: right;" id="jmlUserFinger2"></span>
 				</div>
 				<div class="form-group">
 					<button id="cekUserFinger" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalInfoUserFinger">Cek User</button>
 				</div>
+				@endforeach
 			</form>
 		</div>
 		<!-- /.box-body -->

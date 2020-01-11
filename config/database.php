@@ -63,7 +63,7 @@ return [
             ]) : [],
         ],
 
-        'mysql2' => [
+        'fingerprint' => [
             'driver'    => env('DB_CONNECTION_SECOND'),
             'host'      => env('DB_HOST_SECOND'),
             'port'      => env('DB_PORT_SECOND'),
@@ -72,7 +72,7 @@ return [
             'password'  => env('DB_PASSWORD_SECOND'),
         ],
 
-        'mysql3' => [
+        'dapodik' => [
             'driver'    => env('DB_CONNECTION_THIRD'),
             'host'      => env('DB_HOST_THIRD'),
             'port'      => env('DB_PORT_THIRD'),

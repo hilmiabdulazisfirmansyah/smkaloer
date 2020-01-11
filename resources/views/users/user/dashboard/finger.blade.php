@@ -12,7 +12,7 @@
 @include('users.user.component.finger.getUser')
 @include('users.user.component.finger.delUser')
 @include('users.user.component.finger.tambahUser')
-
+@include('users.user.component.finger.sync')
 @stop
 
 @section('script')

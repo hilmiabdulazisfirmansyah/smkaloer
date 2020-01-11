@@ -13,6 +13,10 @@
 // eksperiment
 //
 // Route untuk Halaman Awal
+Route::GET('test/users','TestController@index');
+
+
+
 Route::GET('/', 'BlogController@index')->name('home');
 
 Route::GET('test', function(){
@@ -22,7 +26,17 @@ Route::GET('test', function(){
 Route::GET('backup/dapodik', 'BackupController@index');
 Route::GET('backup/dapodik/{param}', 'BackupController@dapodik');
 
-Route::GET('sync/dapodik','SyncController@dapodik');
+Route::GET('sync/dapodik/{param}','SyncController@dapodik');
+Route::GET('sync/fingerprint','SyncController@finger');
+
+Route::GET('export/{param}','ExportController@index');
+
+Route::GET('export/fingerprint/{role}','ExportController@export_fingerprint');
+Route::GET('export/fingerprint/siswa/{param}','ExportController@export_fingerprint_siswa');
+
+Route::GET('import/{param}','ImportController@index');
+Route::GET('import/fingerprint/{role}','ImportController@import_fingerprint');
+Route::POST('import/fingerprint/siswa/{param}','ImportController@import_fingerprint_siswa');
 
 Route::GET('/sejarah', 'BlogController@sejarah');
 Route::GET('/visi', 'BlogController@visi');
@@ -60,14 +74,16 @@ Route::POST('/users', 'LoginController@home');
 Route::group(['middleware' => ['auth','checkRole:Siswa,Guru']], function(){
 	Route::GET('/dashboard', 'DashboardController@dashboard');
 	Route::GET('/absensi/siswa', 'AbsensiController@siswa')->name('absensiSiswa');
+	Route::GET('/absensi/kalender', 'KalenderController@index');
+	Route::GET('/kalender/absensi/{id}', 'KalenderController@siswa');
 	Route::GET('/profile', 'DashboardController@profile');
 	Route::POST('/alamat', 'SiswaController@update');
 });
 
 Route::group(['middleware' => ['auth','checkRole:Guru']], function(){
 	Route::GET('/absensi/guru', 'AbsensiController@guru')->name('absensiGuru');
-	Route::GET('/verifikasi','AbsensiController@verifGuru')->name('verifikasiAbsensi');
-	Route::GET('/batalVerif','AbsensiController@batalVerifGuru')->name('verifikasiAbsensi');
+	Route::GET('/verifikasi/{jobTitle}','AbsensiController@verifGuru')->name('verifikasiAbsensi');
+	Route::GET('/batalVerif/{jobTitle}','AbsensiController@batalVerifGuru');
 	Route::GET('/edit/{id}', 'AbsensiController@edit');
 	Route::POST('/update/kehadiran', 'AbsensiController@update');
 	Route::GET('getKehadiranGuru', 'AbsensiController@getKehadiranGuru');

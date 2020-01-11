@@ -64,7 +64,7 @@
       <option value="3">Izin</option>
       <option value="4">Bolos</option>
       <option value="5">Terlambat</option>
-      <option value="6">Alpha</option>
+      <option value="0">Alpha</option>
     </select>
   </div>
 </li>

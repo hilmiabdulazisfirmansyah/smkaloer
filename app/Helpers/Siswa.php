@@ -191,29 +191,30 @@ function getListDesa($id_kecamatan=null){
 	return $result;
 }
 
-function kehadiran($kehadiran_id){
+function kehadiran($siswa_id, $kehadiran_id){
+
 	switch ($kehadiran_id) {
-		case '0':
+		case 'Alpha':
 		echo "<span class='badge bg-red'>Alpha</span>";
 		break;
 
-		case '1':
+		case 'Hadir':
 		echo "<span class='badge bg-green'>Hadir</span>";
 		break;
 
-		case '2':
+		case 'Sakit':
 		echo "<span class='badge bg-blue'>Sakit</span>";
 		break;
 
-		case '3':
+		case 'Izin':
 		echo "<span class='badge bg-yellow'>Izin</span>";
 		break;
 
-		case '4':
+		case 'Bolos':
 		echo "<span class='badge bg-grey'>Bolos</span>";
 		break;
 
-		case '5':
+		case 'Terlambat':
 		echo "<span class='badge bg-purple'>Terlambat</span>";
 		break;
 		
@@ -235,6 +236,38 @@ function verif($status){
 
 		default:
 			echo "";
+		break;
+	}
+}
+
+function str_kehadiran($data){
+	switch ($data) {
+		case '0':
+		echo "Alpha";
+		break;
+
+		case '1':
+		echo "Hadir";
+		break;
+
+		case '2':
+		echo "Sakit";
+		break;
+
+		case '3':
+		echo "Izin";
+		break;
+
+		case '4':
+		echo "Bolos";
+		break;
+
+		case '5':
+		echo "Terlambat";
+		break;
+		
+		default:
+		echo "";
 		break;
 	}
 }

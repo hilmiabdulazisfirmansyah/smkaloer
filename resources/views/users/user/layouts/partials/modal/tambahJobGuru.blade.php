@@ -22,10 +22,10 @@
            <select class="form-control select2 JobGuruNama" style="width: 100%;"  tabindex="-1" aria-hidden="true" placeholder="Pilih Nama Guru" name="nama" id="jobGuruNama">
             <option value="default">Pilih Nama Guru :</option>
             @php
-            $guru = DB::table('guru')->orderBy('nama', 'asc')->get();
+            $guru = DB::table('users')->where('role', '=', 'Guru')->orderBy('name', 'asc')->get();
             @endphp
             @foreach ($guru as $daftarGuru)
-            <option value="{{$daftarGuru->nama}}">{{$daftarGuru->nama}}</option>
+            <option value="{{$daftarGuru->name}}">{{$daftarGuru->name}}</option>
             @endforeach
           </select>
         </div>

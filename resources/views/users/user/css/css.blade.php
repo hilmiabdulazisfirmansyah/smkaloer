@@ -24,6 +24,9 @@
    <link rel="stylesheet" href="/lte/css/skins/_all-skins.min.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.4/cropper.min.css">
    <link type="icon" rel="shortcut icon" href="{{('/img/favicon.ico')}}">
+     <!-- fullCalendar -->
+  <link rel="stylesheet" href="/lte/bower_components/fullcalendar/dist/fullcalendar.min.css">
+  <link rel="stylesheet" href="/lte/bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
 
    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

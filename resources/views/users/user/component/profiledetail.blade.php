@@ -43,3 +43,7 @@
 			@if (auth()->user()->role == 'dev')
 			@include('users.user.component.pembayaran')
 			@endif
+		</div>
+	</div>
+</div>
+

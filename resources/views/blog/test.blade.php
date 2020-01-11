@@ -1,11 +1,10 @@
 <?php
+	//post_dapodik($url, $postfields);
 
-$url 	= 'http://192.168.100.6:5774/rest/Ptk?_dc=1577896635970&entry_sekolah_id=07275a29-4663-4642-bee0-823762714895&ptk_module=ptkterdaftar&tahun_ajaran_id=2019&jenis_gtk=tendik&limit=25&penugasan_null=2&page=1&start=0';
-$grab 	= backup_guru($url);
+//$data = '{"website":"http://www.smkaloerwargakusumah.sch.i"}';
 
-$select = DB::connection('mysql3')->table('tanah')->exists();
 
-dd($select);
+
 
 //$url= 'http://110.136.104.230:1746/api/pengguna?kandidat=99&tahun=2019&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTEwLjEzNi4xMDQuMjMwOjE3NDYvYXBpL2xvZ2luIiwiaWF0IjoxNTc0OTg3MzA0LCJuYmYiOjE1NzQ5ODczMDQsImp0aSI6InVGQjlVSVE2aGRMcGtFVDIiLCJzdWIiOiIxMDNlNmE1Yy1hNGYyLTRiNTQtYjVjNy04YmFkNGQ3MDNjMTkiLCJwcnYiOiJhMjgzZmM5MTZmYTE0YzQwZGRiZTU5MzE0MWExNjcxNjMxNzNkYTg0In0.x1Non29ZJGR193lyz_3P79Zh9AtPLjfpH8T3r0D_cqc&start=20&limit=700&keyword=&peran=99&sekolah_id=07275a29-4663-4642-bee0-823762714895';
 
@@ -44,7 +43,7 @@ dd($select);
 function getDevice(){
 	$ch = curl_init();
 
-	curl_setopt($ch, CURLOPT_URL,"http://31a6592a.ngrok.io/dev/info");
+	curl_setopt($ch, CURLOPT_URL,"http://192.168.100.8:7005/dev/info");
 	curl_setopt($ch, CURLOPT_POST, 1);
 	curl_setopt($ch, CURLOPT_POSTFIELDS,
 		"sn=61627018330936");
@@ -64,11 +63,11 @@ function getDevice(){
 
 function getUser(){
 	$ch = curl_init();
-
-	curl_setopt($ch, CURLOPT_URL,"http://192.168.8.1:8080/user/all/paging");
-	curl_setopt($ch, CURLOPT_POST, 1);
+	set_time_limit(0);
+	curl_setopt($ch, CURLOPT_URL,"http://192.168.100.8:7005/user/all/paging");
+	//curl_setopt($ch, CURLOPT_POST, 1);
 	curl_setopt($ch, CURLOPT_POSTFIELDS,
-		"sn=61627018330936");
+		http_build_query(array('sn' => '61627018330936')));
 
 // In real life you should use something like:
 // curl_setopt($ch, CURLOPT_POSTFIELDS, 
@@ -78,10 +77,11 @@ function getUser(){
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
 	$server_output = curl_exec($ch);
-	return $data = json_decode($server_output, true);
 	curl_close ($ch);
-
+	return $data = json_decode($server_output, true);
 }
+
+
 
 function getDataScan(){
 	$ch = curl_init();
@@ -126,7 +126,30 @@ function setData(){
 
 }
 
+function getTemplateAll($pinT){
+	$header = '"Template":[';
+	$footer = "]";
+	$database = DB::connection('mysql2')->table('tb_template')->where('pin', '=', $pinT)->get();
+	foreach ($database as $data) {
+		$content = '{"pin":"'.$data->pin.'","idx":"'.$data->finger_idx.'","alg_ver":"'.$data->alg_ver.'","template":"'.$data->template.'"}';
+	}
+	return ($header.$content.$footer);
+}
 
+
+$port = 7005;
+$url = '192.168.100.8/user/set-all';
+$sn = '61627018330877';
+
+$header = '{"Result":true,"Data":[';
+$footer = "]}";
+$database = DB::connection('mysql2')->table('tb_user')->get();
+$content = json_encode($database, true);
+$data = $header.$content.$footer;
+$parameter = "sn=".$sn."&data=".$data;
+$server_output = webservice($port,$url,$parameter);
+
+dd($server_output);
 ?>
 
 {{-- <p>Get Device Info</p>
