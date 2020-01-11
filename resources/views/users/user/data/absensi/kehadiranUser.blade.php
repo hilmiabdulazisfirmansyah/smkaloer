@@ -1,7 +1,12 @@
 <div class="box">
 	<div class="box-header">
 		<h3 class="box-title">Table Detail Kehadiran Anda</h3>
+<<<<<<< HEAD
+=======
+		<h5 class="box-title" style="float:right;">Pin Anda : {{ $pin }}</h5>
+>>>>>>> 67f4089ac00f9a0a874c5c888387493d215ec299
 	</div>
+	
 	<!-- /.box-header -->
 	<div class="box-body">
 		<div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12"><table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">

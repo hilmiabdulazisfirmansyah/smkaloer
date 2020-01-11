@@ -49,6 +49,7 @@
 		e.preventDefault();
 		$('#storeDataFinger').html('<i class="fa fa-spin fa-refresh"></i>  <i>sedang Menambahkan data . . .</i>');
 
+<<<<<<< HEAD
 		$.ajax({
 			url: '{{ url('finger/setUser') }}',
 			type: 'POST',
@@ -59,6 +60,16 @@
 				}else{
 					$('#storeDataFinger').html('<span class="label label-danger">Error</span>');
 				}
+=======
+		var id = $(this).data('id');
+
+		$.ajax({
+			url: '{{ url('finger/setUser') }}',
+			type: 'POST',
+			data:{id:id},
+			success: function(data){
+				console.log(data);
+>>>>>>> 67f4089ac00f9a0a874c5c888387493d215ec299
 			}
 		});
 	})
@@ -90,4 +101,21 @@
 			}
 		});
 	})
+<<<<<<< HEAD
+=======
+
+	$(document).on('click', '#syncFinger', function(e){
+		e.preventDefault();
+		$.ajax({
+			url: '{{ url('sync/fingerprint') }}',
+			type: 'GET',
+			success: function(data){
+				$('.progress-bar').attr('aria-valuemax', data.max);
+				for (var i = 0; i < data.percent; i++) {
+					$('.progress-bar').css('width', i+'%');
+				}
+			}
+		});
+	});
+>>>>>>> 67f4089ac00f9a0a874c5c888387493d215ec299
 </script>

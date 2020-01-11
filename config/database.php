@@ -63,7 +63,11 @@ return [
             ]) : [],
         ],
 
+<<<<<<< HEAD
         'mysql2' => [
+=======
+        'fingerprint' => [
+>>>>>>> 67f4089ac00f9a0a874c5c888387493d215ec299
             'driver'    => env('DB_CONNECTION_SECOND'),
             'host'      => env('DB_HOST_SECOND'),
             'port'      => env('DB_PORT_SECOND'),
@@ -72,7 +76,11 @@ return [
             'password'  => env('DB_PASSWORD_SECOND'),
         ],
 
+<<<<<<< HEAD
         'mysql3' => [
+=======
+        'dapodik' => [
+>>>>>>> 67f4089ac00f9a0a874c5c888387493d215ec299
             'driver'    => env('DB_CONNECTION_THIRD'),
             'host'      => env('DB_HOST_THIRD'),
             'port'      => env('DB_PORT_THIRD'),

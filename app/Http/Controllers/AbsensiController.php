@@ -28,6 +28,8 @@ class AbsensiController extends Controller
 		$users = auth()->user()->role;
 		$user_id = auth()->user()->id;
 		$nama = auth()->user()->name;
+		$pin = auth()->user()->pin;
+
 		if (strlen($nama) > 18) 
 		{
 			$nama = substr($nama,0, 18);
@@ -88,6 +90,7 @@ class AbsensiController extends Controller
 
 		return view('users.user.dashboard.absensi', compact([
 			'users',
+			'pin',
 			'judul',
 			'kehadiran',
 			'nama',
@@ -109,6 +112,8 @@ class AbsensiController extends Controller
 		$user_id = auth()->user()->id;
 		$job_title = auth()->user()->job_title;
 		$nama = auth()->user()->name;
+		$pin = auth()->user()->pin;
+		
 		if (strlen($nama) > 18) {
 			$nama = substr($nama,0, 18);
 		}
@@ -172,6 +177,10 @@ class AbsensiController extends Controller
 
 		return view('users.user.dashboard.absensi', compact([
 			'users',
+<<<<<<< HEAD
+=======
+			'pin',
+>>>>>>> 67f4089ac00f9a0a874c5c888387493d215ec299
 			'job_title',
 			'judul',
 			'kehadiran',
@@ -195,6 +204,7 @@ class AbsensiController extends Controller
 		$id = $request->id;
 		switch ($jobTitle) {
 			case 'Guru':
+<<<<<<< HEAD
 				$jt = 'verifikasi_guru';
 			break;
 
@@ -209,6 +219,22 @@ class AbsensiController extends Controller
 			default:
 				$jt = 'verifikasi_guru';
 				break;
+=======
+			$jt = 'verifikasi_guru';
+			break;
+
+			case 'KS':
+			$jt = 'verifikasi_ks';
+			break;
+
+			case 'Piket':
+			$jt = 'verifikasi_guru_piket';
+			break;
+			
+			default:
+			$jt = 'verifikasi_guru';
+			break;
+>>>>>>> 67f4089ac00f9a0a874c5c888387493d215ec299
 		}
 		$data = kehadiran_user::where('user_id', '=', $id)->update([$jt => 'Sudah Di Verifikasi']);
 		return $data;
@@ -219,6 +245,7 @@ class AbsensiController extends Controller
 		$id = $request->id;
 		switch ($jobTitle) {
 			case 'Guru':
+<<<<<<< HEAD
 				$jt = 'verifikasi_guru';
 			break;
 
@@ -233,6 +260,22 @@ class AbsensiController extends Controller
 			default:
 				$jt = 'verifikasi_guru';
 				break;
+=======
+			$jt = 'verifikasi_guru';
+			break;
+
+			case 'KS':
+			$jt = 'verifikasi_ks';
+			break;
+
+			case 'Piket':
+			$jt = 'verifikasi_guru_piket';
+			break;
+			
+			default:
+			$jt = 'verifikasi_guru';
+			break;
+>>>>>>> 67f4089ac00f9a0a874c5c888387493d215ec299
 		}
 		$data = kehadiran_user::where('user_id', '=', $id)->update([$jt => 'Belum Di Verifikasi']);
 		return $data;
@@ -249,9 +292,9 @@ class AbsensiController extends Controller
 	{
 		$user_id = kehadiran_user::where('user_id', '=', $request->user_id);
 
-        $user_id->update($request->all());
+		$user_id->update($request->all());
 
-        return back()->with('sukses', 'Data Berhasil di perbaharui');
+		return back()->with('sukses', 'Data Berhasil di perbaharui');
 	}
 
 	public function getKehadiranGuru(Request $request){

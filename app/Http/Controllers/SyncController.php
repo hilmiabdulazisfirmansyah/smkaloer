@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 use DB;
 use Str;
+<<<<<<< HEAD
+=======
+use App\kehadiran_user;
+>>>>>>> 67f4089ac00f9a0a874c5c888387493d215ec299
 use Illuminate\Http\Request;
 
 class SyncController extends Controller
@@ -84,6 +88,7 @@ class SyncController extends Controller
 
 
 
+<<<<<<< HEAD
 				}
 			// 
 			// 
@@ -105,3 +110,45 @@ class SyncController extends Controller
 		}
 
 	}
+=======
+			}
+			// 
+			// 
+
+			break;
+
+			default:
+				# code...
+			break;
+		}
+
+		if ($param != 'kepanitiaan') {
+			$database = json_encode($database, true);
+			$database = Str::replaceFirst('[', '', $database);
+			$database = Str::replaceLast(']', '', $database);
+			sync_dapodik($url, $database);
+		}
+
+	}
+
+	public function finger(){
+		$get_all_users = DB::table('users')->get();
+		$max = count($get_all_users);
+		$min = 1;
+		$data = ['min' => $min, 'max' => $max, 'percent' => '100' ];
+		return $data;
+		// foreach ($get_all_users as $get_user) {
+		// 	$scans = DB::connection('fingerprint')->table('tb_scanlog')->where('pin', '=', $get_user->pin)->get();
+		// 	foreach ($scans as $scan) {
+		// 		$insert_into_kehadiran_user = kehadiran_user::insert([
+		// 			'user_id' => $get_user->id,
+		// 			'role' => $get_user->role,
+		// 			'kehadiran_id' => '1',
+		// 			'created_at' => $scan->scan_date
+		// 		]);
+		// 	}
+		// }
+	}
+
+}
+>>>>>>> 67f4089ac00f9a0a874c5c888387493d215ec299

@@ -36,7 +36,10 @@ class FingerprintController extends Controller
 		$port = $request->port;
 		$url = $request->ip.'/user/all/paging';
 		$data = webservice($port,$url,$parameter);
+<<<<<<< HEAD
 		dd($data);
+=======
+>>>>>>> 67f4089ac00f9a0a874c5c888387493d215ec299
 		return $data;
 	}
 
@@ -51,6 +54,7 @@ class FingerprintController extends Controller
 	}
 
 	public function setUser(Request $request){
+<<<<<<< HEAD
 // test
 // $data = $request->all();
 // return $data;
@@ -78,4 +82,25 @@ class FingerprintController extends Controller
 	}
 
 	
+=======
+		$sn = Finger::where('No', '=', $request->id)->get()->first()->device_sn;
+		$database = DB::connection('fingerprint')->table('tb_user')->get();
+
+		foreach ($database as $data) {
+			set_time_limit(5000);
+			$upPin = $data->pin;
+			$upNama = $data->nama;
+			$upPwd = $data->pwd;
+			$upRfid = $data->rfid;
+			$upPriv = $data->privilege;
+			$upTemp = getTemplate($upPin);
+			$upTemp = str_replace("+","%2B",$upTemp);
+			$parameter = "sn=".$sn."&pin=".$upPin."&nama=".$upNama."&pwd=".$upPwd."&rfid=".$upRfid."&priv=".$upPriv."&tmp=".$upTemp;
+			$url = "192.168.100.8/user/set";
+			$server_output = webservice(7005,$url,$parameter);
+		}
+		
+		return 'sukses';
+	}
+>>>>>>> 67f4089ac00f9a0a874c5c888387493d215ec299
 }

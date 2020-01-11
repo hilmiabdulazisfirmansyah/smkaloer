@@ -134,4 +134,23 @@ function sync_dapodik($url, $data){
   } else {
     echo $response;
   }
+<<<<<<< HEAD
 }
+=======
+}
+
+function getTemplate($pinT){
+  $header = "[";
+  $footer = "]";
+  $content = "";
+  $mysqli = new mysqli("192.168.100.8","hilmi","ransomware","fingerprint");
+  $sqlGetTemp = mysqli_query($mysqli, "SELECT * FROM tb_template where pin=".$pinT);
+  while($dataGetTemp = mysqli_fetch_array($sqlGetTemp)){
+    if ($content != ""){
+      $content = $content.',';
+    }
+    $content = $content.'{"pin":"'.$dataGetTemp['pin'].'","idx":"'.$dataGetTemp['finger_idx'].'","alg_ver":"'.$dataGetTemp['alg_ver'].'","template":"'.$dataGetTemp['template'].'"}';
+  }
+  return ($header.$content.$footer);
+}
+>>>>>>> 67f4089ac00f9a0a874c5c888387493d215ec299
