@@ -7,12 +7,21 @@ use Illuminate\Http\Request;
 use App\Guru;
 use App\Ortu;
 use App\User;
+use App\Siswa;
 use App\kehadiran_user;
 use DB;
 use Str;
 
 class AbsensiController extends Controller
 {
+	public function index(){
+		//get data siswa
+		$kehadiran_siswa = kehadiran_user::get();
+		$nama_siswa = Siswa::get(['user_id','nama']);
+
+		return response()->json(['kehadiran_siswa' => $kehadiran_siswa, 'nama_siswa' => $nama_siswa]);
+
+	}
 	public function siswa()
 	{
 		$judul = 'Absensi';
@@ -75,9 +84,9 @@ class AbsensiController extends Controller
 
 		$persentase_terlambat = ($skor_terlambat!=0 && $jumlah_kbm_efektif!=0)?($skor_terlambat/$jumlah_kbm_efektif):0;
 		$persentase_terlambat = Str::limit($persentase_terlambat, 2);
+		
 
-
-		return view('users.user.dashboard.absensi', compact(
+		return view('users.user.dashboard.absensi', compact([
 			'users',
 			'judul',
 			'kehadiran',
@@ -90,7 +99,7 @@ class AbsensiController extends Controller
 			'persentase_izin',
 			'persentase_bolos',
 			'persentase_terlambat',
-		));
+		]));
 	}
 
 	public function guru()
@@ -98,22 +107,26 @@ class AbsensiController extends Controller
 		$judul = 'Absensi';
 		$users = auth()->user()->role;
 		$user_id = auth()->user()->id;
+		$job_title = auth()->user()->job_title;
 		$nama = auth()->user()->name;
 		if (strlen($nama) > 18) {
 			$nama = substr($nama,0, 18);
 		}
 		//kehadiran siswa
 		$kehadiran = User::find($user_id);
+		$kehadiran_guru_mapel = kehadiran_user::where('role', '=', 'Guru')->where('created_at', '=', now()->toDateString())->paginate(10);
 		$kehadiran_guru = $kehadiran->kehadiran_user;
 
-		$kehadiran_siswa = User::where('role', '=', 'Siswa')->get();
+		$daftar_siswa = User::where('role', '=', 'Siswa')->get();
+		$kehadiran_siswa = kehadiran_user::where('role', '=', 'Siswa')->where('created_at', '=', now()->toDateString())->paginate(10);
+
 
 		if ($kehadiran_guru == null) {
 			$kehadiran_guru = 'kosong';
 		}
 		else
 		{
-			$kehadiran_guru = $kehadiran->kehadiran_user->where('user_id', '=', $user_id)->get();
+			$kehadiran_guru = $kehadiran->kehadiran_user->where('user_id', '=', $user_id)->paginate(10);
 		}
 
 		$nama_kehadiran = $kehadiran->kehadiran;
@@ -157,13 +170,16 @@ class AbsensiController extends Controller
 		$persentase_terlambat = Str::limit($persentase_terlambat, 2);
 
 
-		return view('users.user.dashboard.absensi', compact(
+		return view('users.user.dashboard.absensi', compact([
 			'users',
+			'job_title',
 			'judul',
 			'kehadiran',
 			'nama',
+			'daftar_siswa',
 			'kehadiran_siswa',
 			'kehadiran_guru',
+			'kehadiran_guru_mapel',
 			'nama_kehadiran',
 			'persentase_hadir',
 			'persentase_alpha',
@@ -171,20 +187,54 @@ class AbsensiController extends Controller
 			'persentase_izin',
 			'persentase_bolos',
 			'persentase_terlambat',
-		));
+		]));
 	}
 
-	public function verifGuru(Request $request)
+	public function verifGuru(Request $request, $jobTitle)
 	{
 		$id = $request->id;
-		$data = kehadiran_user::where('user_id', '=', $id)->update(['verifikasi_guru' => 'Sudah Di Verifikasi']);
+		switch ($jobTitle) {
+			case 'Guru':
+				$jt = 'verifikasi_guru';
+			break;
+
+			case 'KS':
+				$jt = 'verifikasi_ks';
+			break;
+
+			case 'Piket':
+				$jt = 'verifikasi_guru_piket';
+			break;
+			
+			default:
+				$jt = 'verifikasi_guru';
+				break;
+		}
+		$data = kehadiran_user::where('user_id', '=', $id)->update([$jt => 'Sudah Di Verifikasi']);
 		return $data;
 	}
 
-	public function batalVerifGuru(Request $request)
+	public function batalVerifGuru(Request $request, $jobTitle)
 	{
 		$id = $request->id;
-		$data = kehadiran_user::where('user_id', '=', $id)->update(['verifikasi_guru' => 'Belum Di Verifikasi']);
+		switch ($jobTitle) {
+			case 'Guru':
+				$jt = 'verifikasi_guru';
+			break;
+
+			case 'KS':
+				$jt = 'verifikasi_ks';
+			break;
+
+			case 'Piket':
+				$jt = 'verifikasi_guru_piket';
+			break;
+			
+			default:
+				$jt = 'verifikasi_guru';
+				break;
+		}
+		$data = kehadiran_user::where('user_id', '=', $id)->update([$jt => 'Belum Di Verifikasi']);
 		return $data;
 	}
 
@@ -204,4 +254,7 @@ class AbsensiController extends Controller
         return back()->with('sukses', 'Data Berhasil di perbaharui');
 	}
 
+	public function getKehadiranGuru(Request $request){
+		return view('users.user.data.absensi.absensiSiswa');
+	}
 }

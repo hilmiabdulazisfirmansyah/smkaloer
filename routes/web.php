@@ -13,10 +13,21 @@
 // eksperiment
 //
 // Route untuk Halaman Awal
+Route::GET('test/users','TestController@index');
+
+
+
 Route::GET('/', 'BlogController@index')->name('home');
+
 Route::GET('test', function(){
 	return view('blog.test');
 });
+
+Route::GET('backup/dapodik', 'BackupController@index');
+Route::GET('backup/dapodik/{param}', 'BackupController@dapodik');
+
+Route::GET('sync/dapodik/{param}','SyncController@dapodik');
+
 Route::GET('/sejarah', 'BlogController@sejarah');
 Route::GET('/visi', 'BlogController@visi');
 Route::GET('/tav', 'BlogController@tav');
@@ -53,16 +64,19 @@ Route::POST('/users', 'LoginController@home');
 Route::group(['middleware' => ['auth','checkRole:Siswa,Guru']], function(){
 	Route::GET('/dashboard', 'DashboardController@dashboard');
 	Route::GET('/absensi/siswa', 'AbsensiController@siswa')->name('absensiSiswa');
+	Route::GET('/absensi/kalender', 'KalenderController@index');
+	Route::GET('/kalender/absensi/{id}', 'KalenderController@siswa');
 	Route::GET('/profile', 'DashboardController@profile');
 	Route::POST('/alamat', 'SiswaController@update');
 });
 
 Route::group(['middleware' => ['auth','checkRole:Guru']], function(){
 	Route::GET('/absensi/guru', 'AbsensiController@guru')->name('absensiGuru');
-	Route::GET('/verifikasi','AbsensiController@verifGuru')->name('verifikasiAbsensi');
-	Route::GET('/batalVerif','AbsensiController@batalVerifGuru')->name('verifikasiAbsensi');
+	Route::GET('/verifikasi/{jobTitle}','AbsensiController@verifGuru')->name('verifikasiAbsensi');
+	Route::GET('/batalVerif/{jobTitle}','AbsensiController@batalVerifGuru');
 	Route::GET('/edit/{id}', 'AbsensiController@edit');
 	Route::POST('/update/kehadiran', 'AbsensiController@update');
+	Route::GET('getKehadiranGuru', 'AbsensiController@getKehadiranGuru');
 
 // Mata Pelajaran khusus job title Kurikulum
 	Route::GET('rombel', 'RombelController@index');
@@ -99,7 +113,16 @@ Route::group(['middleware' => ['auth','checkRole:Guru']], function(){
 	Route::POST('/updateJobSiswa/{id}', 'JobSiswaController@updateJobSiswa');
 	Route::GET('/deleteJobSiswa/{id}', 'JobSiswaController@deleteJobSiswa');
 
+	Route::GET('finger', 'FingerprintController@index');
+	Route::POST('finger/getDevice', 'FingerprintController@getDevice');
+	Route::POST('finger/getUser', 'FingerprintController@getUser');
+	Route::POST('finger/delUser', 'FingerprintController@delUser');
+	Route::POST('finger/setUser', 'FingerprintController@setUser');
+	
 });
+	Route::GET('/chats', 'ChatsController@index');
+	Route::GET('/messages', 'ChatsController@fetchMessages');
+	Route::POST('/messages', 'ChatsController@sendMessage');
 
 //Logout
 Route::GET('/logout', 'LoginController@logout');

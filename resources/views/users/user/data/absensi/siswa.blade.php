@@ -8,75 +8,75 @@
 <tr role="row" class="odd">
 	<td class="sorting_1 text-center">{{ $loop->iteration}}</td>
 
-	<td class="text-center">{{ $kehadiran->created_at }}</td>
+	<td class="text-center">{{ $kehadiran->created_at->toDateString() }}</td>
 
 
 	@php
 	switch ($nama_kehadiran->find($kehadiran->kehadiran_id)->nama) {
 
 		case 'Sakit':
-		$badge = 'aqua';
+		$badge = 'bg-aqua';
 		break;
 
 		case 'Hadir':
-		$badge = 'green';
+		$badge = 'bg-green';
 		break;
 
 		case 'Izin':
-		$badge = 'yellow';
+		$badge = 'bg-yellow';
 		break;
 
 		case 'Alpha':
-		$badge = 'red';
+		$badge = 'bg-red';
 		break;
 
 		case 'Bolos':
-		$badge = 'grey';
+		$badge = 'bg-grey';
 		break;
 
 		case 'Terlambat':
-		$badge = 'purple';
+		$badge = 'bg-purple';
 		break;
 
 		default:
-		$badge = 'grey';
+		$badge = 'bg-grey';
 		break;
 	}
 	@endphp
 
-	<td class="text-center"><span class="badge bg-{{$badge}}">{{ $nama_kehadiran->find($kehadiran->kehadiran_id)->nama }}</span></td>
+	<td class="text-center"><span class="badge {{$badge}}">{{ $nama_kehadiran->find($kehadiran->kehadiran_id)->nama }}</span></td>
 
 	@php
 	switch ($kehadiran->verifikasi_guru) {
 		case 'Sudah Di Verifikasi':
-		$badgeVerifGuru = 'green';
+		$badgeVerifGuru = 'bg-green';
 		break;
 
 		case 'Belum Di Verifikasi':
-		$badgeVerifGuru = 'red';
+		$badgeVerifGuru = 'bg-red';
 		break;
 
 		default:
-		$badgeVerifGuru = 'red';
+		$badgeVerifGuru = 'bg-red';
 		break;
 	}
 	switch ($kehadiran->verifikasi_guru_piket) {
 		case 'Sudah Di Verifikasi':
-		$badgeVerifPiket = 'green';
+		$badgeVerifPiket = 'bg-green';
 		break;
 
 		case 'Belum Di Verifikasi':
-		$badgeVerifPiket = 'red';
+		$badgeVerifPiket = 'bg-red';
 		break;
 
 		default:
-		$badgeVerifPiket = 'red';
+		$badgeVerifPiket = 'bg-red';
 		break;
 	}
 	@endphp
 
-	<td class="text-center"><span class="badge bg-{{$badgeVerifGuru}}">{{ $kehadiran->verifikasi_guru }}</span></td>
-	<td class="text-center"><span class="badge bg-{{$badgeVerifPiket}}">{{ $kehadiran->verifikasi_guru_piket }}</span></td>
+	<td class="text-center"><span class="badge {{$badgeVerifGuru}}">{{ $kehadiran->verifikasi_guru }}</span></td>
+	<td class="text-center"><span class="badge {{$badgeVerifPiket}}">{{ $kehadiran->verifikasi_guru_piket }}</span></td>
 </tr>
 
 @endforeach

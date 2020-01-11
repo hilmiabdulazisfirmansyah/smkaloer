@@ -1,4 +1,6 @@
 <!-- jQuery 3 -->
+<script src="{{ url('js/app.js') }}"></script>
+
 <script src="/lte/bower_components/jquery/dist/jquery.min.js"></script>
 {{-- Alertify --}}
 <!-- Bootstrap 3.3.7 -->
@@ -17,3 +19,7 @@
 <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.12.0/build/alertify.min.js"></script>
 {{-- Select2 --}}
 <script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
+<!-- fullCalendar -->
+<script src="/lte/bower_components/moment/moment.js"></script>
+<script src="/lte/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+<script src="/lte/bower_components/fullcalendar/dist/locale/id.js"></script>

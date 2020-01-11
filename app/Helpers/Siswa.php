@@ -1,7 +1,7 @@
 <?php
 
 function grabDapo(){
-	$ip_dapodik = '36.72.32.134';
+	$ip_dapodik = '192.168.100.6';
 	$username = 'dedeheryanto15@gmail.com';
 	$password = 'Samrat235';
 	$semester_id = '20191';
@@ -40,7 +40,7 @@ function grabDapo(){
 }
 
 function loginDapodikSiswa(){
-	$ip_dapodik = '36.72.32.134';
+	$ip_dapodik = '192.168.100.6';
 	$username = 'dedeheryanto15@gmail.com';
 	$password = 'Samrat235';
 	$semester_id = '20191';
@@ -79,7 +79,7 @@ function loginDapodikSiswa(){
 
 function siswa()
 {
-	$ip_dapodik = '36.72.32.134';
+	$ip_dapodik = '192.168.100.6';
 	$url = 'http://'.$ip_dapodik.':5774/rest/PesertaDidik?_dc=1573411993332&sekolah_id=07275a29-4663-4642-bee0-823762714895&pd_module=pdterdaftar&limit=100&ascending=nama&page=1&start=600';
 
 	$cookie = base_path("cookie.txt");
@@ -189,4 +189,85 @@ function getListDesa($id_kecamatan=null){
 		}
 	}
 	return $result;
+}
+
+function kehadiran($siswa_id, $kehadiran_id){
+
+	switch ($kehadiran_id) {
+		case 'Alpha':
+		echo "<span class='badge bg-red'>Alpha</span>";
+		break;
+
+		case 'Hadir':
+		echo "<span class='badge bg-green'>Hadir</span>";
+		break;
+
+		case 'Sakit':
+		echo "<span class='badge bg-blue'>Sakit</span>";
+		break;
+
+		case 'Izin':
+		echo "<span class='badge bg-yellow'>Izin</span>";
+		break;
+
+		case 'Bolos':
+		echo "<span class='badge bg-grey'>Bolos</span>";
+		break;
+
+		case 'Terlambat':
+		echo "<span class='badge bg-purple'>Terlambat</span>";
+		break;
+		
+		default:
+		echo "";
+		break;
+	}
+}
+
+function verif($status){
+	switch($status){
+		case 'Belum Di Verifikasi':
+			echo "<span class='badge bg-red'>Belum Di Verifikasi</span>";	
+		break;
+
+		case 'Sudah Di Verifikasi':
+			echo "<span class='badge bg-red'>Belum Di Verifikasi</span>";	
+		break;
+
+		default:
+			echo "";
+		break;
+	}
+}
+
+function str_kehadiran($data){
+	switch ($data) {
+		case '0':
+		echo "Alpha";
+		break;
+
+		case '1':
+		echo "Hadir";
+		break;
+
+		case '2':
+		echo "Sakit";
+		break;
+
+		case '3':
+		echo "Izin";
+		break;
+
+		case '4':
+		echo "Bolos";
+		break;
+
+		case '5':
+		echo "Terlambat";
+		break;
+		
+		default:
+		echo "";
+		break;
+	}
 }

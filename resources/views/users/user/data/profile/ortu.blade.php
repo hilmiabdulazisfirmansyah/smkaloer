@@ -1,3 +1,4 @@
+@foreach ($ortu_siswa as $ortu)
 <div class="tshadow mb25 bozero">
 	<h3 class="pagetitleh2">Data Orang Tua / Wali</h3>
 	<div class="table-responsive around10 pt0">
@@ -5,7 +6,6 @@
 			<tbody><tr>
 				<td class="col-md-4">Nama Ayah</td>
 
-				@foreach ($ortu_siswa as $ortu)
 				<td class="col-md-5">{{ $ortu->nama_ayah }}</td>
 				<td rowspan="3"><img class="profile-user-img img-responsive img-circle" src="{{auth()->user()->avatar}}"></td>
 			</tr>

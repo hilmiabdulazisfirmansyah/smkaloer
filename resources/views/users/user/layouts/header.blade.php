@@ -1,6 +1,6 @@
 <header class="main-header">
 <!-- Logo -->
-<a href="#" class="logo" style="background-color: #324148;">
+<a href="/" class="logo" style="background-color: #324148;">
 <!-- mini logo for sidebar mini 50x50 pixels -->
 <span class="logo-mini"><img src="/lte/img/logo-primary.png" class="img-rect"></span>
 <!-- logo for regular state and mobile devices -->

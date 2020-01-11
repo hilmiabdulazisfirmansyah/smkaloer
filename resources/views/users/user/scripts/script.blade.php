@@ -60,5 +60,7 @@ $(function () {
 @include('users/user/scripts/scriptsMapel')
 @include('users/user/scripts/scriptsRombel')
 @include('users/user/scripts/scriptsJadwal')
+@include('users/user/scripts/scriptsFinger')
+@include('users/user/scripts/scriptsKalender')
 
 @stop

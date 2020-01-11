@@ -1,7 +1,7 @@
 <?php
 
 function guru(){
-	$ip_dapodik = '36.72.32.134';
+	$ip_dapodik = '192.168.0.2';
 
 	$url = 'http://'.$ip_dapodik.':5774/rest/Ptk?_dc=1574193396908&entry_sekolah_id=07275a29-4663-4642-bee0-823762714895&ptk_module=ptkterdaftar&tahun_ajaran_id=2019&jenis_gtk=guru&limit=1000000&penugasan_null=2&page=1&start=0';
 	$cookie = base_path("cookie.txt");

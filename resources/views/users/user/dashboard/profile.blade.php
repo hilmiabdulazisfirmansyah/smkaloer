@@ -14,10 +14,7 @@
 
 @include('users.user.component.profile')
 @include('users.user.component.profiledetail')
-@include('users.user.component.pembayaran')
-@include('users.user.component.timeline')
-@include('users.user.component.dokumen')
-@include('users.user.component.ujian')
+
 
 @stop
 
