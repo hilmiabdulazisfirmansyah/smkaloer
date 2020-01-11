@@ -35,7 +35,7 @@ class GuruController extends Controller
         // jika tidak sama maka user tidak akan didaftarkan
         // 
         $nik = $request->input('nik');
-        $nikd = DB::connection('mysql3')->table('guru')->where('nik', $nik)->get('nik')->first();
+        $nikd = DB::connection('dapodik')->table('guru')->where('nik', $nik)->get('nik')->first();
 
         if ($nik != $nikd->nik) {
             return redirect('/')->with('nik_tidak_terdaftar', 'NIK yang anda masukkan tidak terdaftar di Dapodik jika terjadi kesalahan data segera hubungi operator sekolah');
