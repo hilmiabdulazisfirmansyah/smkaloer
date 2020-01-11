@@ -45,7 +45,7 @@ class GuruController extends Controller
             if ($user) {
                 return redirect('/')->with('email_sudah_terdaftar', 'Email yang anda gunakan Sudah Terdaftar');
             }
-            $database = DB::connection('mysql3')->table('guru')->where('nik', $nik)->get()->first();
+            $database = DB::connection('dapodik')->table('guru')->where('nik', $nik)->get()->first();
             $username = $database->nama;
 
             $user = new \App\User;
