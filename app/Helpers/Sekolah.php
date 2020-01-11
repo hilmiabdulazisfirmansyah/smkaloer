@@ -150,4 +150,4 @@ function getTemplate($pinT){
   }
   return ($header.$content.$footer);
 }
-//test
+//test git remote
