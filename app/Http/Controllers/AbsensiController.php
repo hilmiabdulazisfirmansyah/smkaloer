@@ -177,7 +177,10 @@ class AbsensiController extends Controller
 
 		return view('users.user.dashboard.absensi', compact([
 			'users',
+<<<<<<< HEAD
+=======
 			'pin',
+>>>>>>> 67f4089ac00f9a0a874c5c888387493d215ec299
 			'job_title',
 			'judul',
 			'kehadiran',
@@ -201,6 +204,22 @@ class AbsensiController extends Controller
 		$id = $request->id;
 		switch ($jobTitle) {
 			case 'Guru':
+<<<<<<< HEAD
+				$jt = 'verifikasi_guru';
+			break;
+
+			case 'KS':
+				$jt = 'verifikasi_ks';
+			break;
+
+			case 'Piket':
+				$jt = 'verifikasi_guru_piket';
+			break;
+			
+			default:
+				$jt = 'verifikasi_guru';
+				break;
+=======
 			$jt = 'verifikasi_guru';
 			break;
 
@@ -215,6 +234,7 @@ class AbsensiController extends Controller
 			default:
 			$jt = 'verifikasi_guru';
 			break;
+>>>>>>> 67f4089ac00f9a0a874c5c888387493d215ec299
 		}
 		$data = kehadiran_user::where('user_id', '=', $id)->update([$jt => 'Sudah Di Verifikasi']);
 		return $data;
@@ -225,6 +245,22 @@ class AbsensiController extends Controller
 		$id = $request->id;
 		switch ($jobTitle) {
 			case 'Guru':
+<<<<<<< HEAD
+				$jt = 'verifikasi_guru';
+			break;
+
+			case 'KS':
+				$jt = 'verifikasi_ks';
+			break;
+
+			case 'Piket':
+				$jt = 'verifikasi_guru_piket';
+			break;
+			
+			default:
+				$jt = 'verifikasi_guru';
+				break;
+=======
 			$jt = 'verifikasi_guru';
 			break;
 
@@ -239,6 +275,7 @@ class AbsensiController extends Controller
 			default:
 			$jt = 'verifikasi_guru';
 			break;
+>>>>>>> 67f4089ac00f9a0a874c5c888387493d215ec299
 		}
 		$data = kehadiran_user::where('user_id', '=', $id)->update([$jt => 'Belum Di Verifikasi']);
 		return $data;

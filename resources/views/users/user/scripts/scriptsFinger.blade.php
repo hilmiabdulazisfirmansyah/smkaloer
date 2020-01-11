@@ -49,6 +49,18 @@
 		e.preventDefault();
 		$('#storeDataFinger').html('<i class="fa fa-spin fa-refresh"></i>  <i>sedang Menambahkan data . . .</i>');
 
+<<<<<<< HEAD
+		$.ajax({
+			url: '{{ url('finger/setUser') }}',
+			type: 'POST',
+			success: function(data){
+				if (data == 'sukses') {
+					$('#storeDataFinger').children("i").remove();
+					$('#storeDataFinger').html('<span class="label label-success">Success</span> <span class="label label-info"> Data Berhasil Di Tambahkan </span>');
+				}else{
+					$('#storeDataFinger').html('<span class="label label-danger">Error</span>');
+				}
+=======
 		var id = $(this).data('id');
 
 		$.ajax({
@@ -57,6 +69,7 @@
 			data:{id:id},
 			success: function(data){
 				console.log(data);
+>>>>>>> 67f4089ac00f9a0a874c5c888387493d215ec299
 			}
 		});
 	})
@@ -88,6 +101,8 @@
 			}
 		});
 	})
+<<<<<<< HEAD
+=======
 
 	$(document).on('click', '#syncFinger', function(e){
 		e.preventDefault();
@@ -102,4 +117,5 @@
 			}
 		});
 	});
+>>>>>>> 67f4089ac00f9a0a874c5c888387493d215ec299
 </script>

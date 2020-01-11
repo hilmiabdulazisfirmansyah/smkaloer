@@ -1,7 +1,10 @@
 <div class="box">
 	<div class="box-header">
 		<h3 class="box-title">Table Detail Kehadiran Anda</h3>
+<<<<<<< HEAD
+=======
 		<h5 class="box-title" style="float:right;">Pin Anda : {{ $pin }}</h5>
+>>>>>>> 67f4089ac00f9a0a874c5c888387493d215ec299
 	</div>
 	
 	<!-- /.box-header -->

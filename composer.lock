@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
+    "content-hash": "75dedbca73a9cd280f2d787187e22452",
+=======
     "content-hash": "336a6be128a5c951fde1eabf83eeb944",
+>>>>>>> 67f4089ac00f9a0a874c5c888387493d215ec299
     "packages": [
         {
             "name": "beyondcode/laravel-websockets",
@@ -1654,6 +1658,29 @@
         {
             "name": "paragonie/sodium_compat",
             "version": "v1.12.1",
+<<<<<<< HEAD
+            "source": {
+                "type": "git",
+                "url": "https://github.com/paragonie/sodium_compat.git",
+                "reference": "063cae9b3a7323579063e7037720f5b52b56c178"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/paragonie/sodium_compat/zipball/063cae9b3a7323579063e7037720f5b52b56c178",
+                "reference": "063cae9b3a7323579063e7037720f5b52b56c178",
+                "shasum": ""
+            },
+            "require": {
+                "paragonie/random_compat": ">=1",
+                "php": "^5.2.4|^5.3|^5.4|^5.5|^5.6|^7|^8"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^3|^4|^5|^6|^7"
+            },
+            "suggest": {
+                "ext-libsodium": "PHP < 7.0: Better performance, password hashing (Argon2i), secure memory management (memzero), and better security.",
+                "ext-sodium": "PHP >= 7.0: Better performance, password hashing (Argon2i), secure memory management (memzero), and better security."
+=======
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/sodium_compat.git",
@@ -1825,6 +1852,109 @@
                 "xlsx"
             ],
             "time": "2019-12-01T23:13:51+00:00"
+        },
+        {
+            "name": "phpoption/phpoption",
+            "version": "1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/schmittjoh/php-option.git",
+                "reference": "f4e7a6a1382183412246f0d361078c29fb85089e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/schmittjoh/php-option/zipball/f4e7a6a1382183412246f0d361078c29fb85089e",
+                "reference": "f4e7a6a1382183412246f0d361078c29fb85089e",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5.9 || ^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.35 || ^5.0 || ^6.0 || ^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.6-dev"
+                }
+>>>>>>> 67f4089ac00f9a0a874c5c888387493d215ec299
+            },
+            "type": "library",
+            "autoload": {
+<<<<<<< HEAD
+                "files": [
+                    "autoload.php"
+                ]
+=======
+                "psr-4": {
+                    "PhpOption\\": "src/PhpOption/"
+                }
+>>>>>>> 67f4089ac00f9a0a874c5c888387493d215ec299
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "ISC"
+            ],
+            "authors": [
+                {
+<<<<<<< HEAD
+                    "name": "Paragon Initiative Enterprises",
+                    "email": "security@paragonie.com"
+                },
+                {
+                    "name": "Frank Denis",
+                    "email": "jedisct1@pureftpd.org"
+=======
+                    "name": "Johannes M. Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                },
+                {
+                    "name": "Graham Campbell",
+                    "email": "graham@alt-three.com"
+>>>>>>> 67f4089ac00f9a0a874c5c888387493d215ec299
+                }
+            ],
+            "description": "Pure PHP implementation of libsodium; uses the PHP extension if it exists",
+            "keywords": [
+                "Authentication",
+                "BLAKE2b",
+                "ChaCha20",
+                "ChaCha20-Poly1305",
+                "Chapoly",
+                "Curve25519",
+                "Ed25519",
+                "EdDSA",
+                "Edwards-curve Digital Signature Algorithm",
+                "Elliptic Curve Diffie-Hellman",
+                "Poly1305",
+                "Pure-PHP cryptography",
+                "RFC 7748",
+                "RFC 8032",
+                "Salpoly",
+                "Salsa20",
+                "X25519",
+                "XChaCha20-Poly1305",
+                "XSalsa20-Poly1305",
+                "Xchacha20",
+                "Xsalsa20",
+                "aead",
+                "cryptography",
+                "ecdh",
+                "elliptic curve",
+                "elliptic curve cryptography",
+                "encryption",
+                "libsodium",
+                "php",
+                "public-key cryptography",
+                "secret-key cryptography",
+                "side-channel resistant"
+            ],
+<<<<<<< HEAD
+            "time": "2019-11-07T17:07:24+00:00"
+=======
+            "time": "2019-11-30T20:20:49+00:00"
+>>>>>>> 67f4089ac00f9a0a874c5c888387493d215ec299
         },
         {
             "name": "phpoption/phpoption",
