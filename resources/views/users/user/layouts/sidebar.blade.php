@@ -30,6 +30,13 @@ if (strlen($nama) > 18) {
 				</a>
 			</li>
 
+			<li>
+				<a href="{{ url('postingan') }}">
+					<i class="fa fa-pencil"></i>
+					<span>Postingan</span>
+				</a>
+			</li>
+
 
 
 			<li class="treeview" style="height:auto;">

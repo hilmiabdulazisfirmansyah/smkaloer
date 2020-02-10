@@ -55,6 +55,10 @@ $(function () {
 
 </script>
 
+<script>
+	CKEDITOR.replace( 'editor1' );
+</script>
+
 @include('users.user.scripts.scriptsJobGuru')
 @include('users.user.scripts.scriptsKehadiran')
 @include('users/user/scripts/scriptsMapel')

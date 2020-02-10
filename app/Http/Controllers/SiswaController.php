@@ -41,8 +41,8 @@ class SiswaController extends Controller
         // 
         $nis = $request->input('nis');
 
-        $siswa = Siswa::where('nipd', '=', $nis)->get()[0];
-        $nipd = $siswa['nipd'];
+        $siswa = Siswa::where('nisn', '=', $nis)->get()[0];
+        $nipd = $siswa['nisn'];
 
         if ($nis != $nipd) {
             return redirect('/')->with('gagal', 'nis yang anda masukkan tidak terdaftar di Dapodik jika terjadi kesalahan data segera hubungi operator sekolah');

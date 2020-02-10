@@ -134,5 +134,12 @@ Route::group(['middleware' => ['auth','checkRole:Guru']], function(){
 	Route::GET('/messages', 'ChatsController@fetchMessages');
 	Route::POST('/messages', 'ChatsController@sendMessage');
 
+Route::GET('postingan', 'PostinganController@index');
+
+Route::GET('ujian','FotoUjianController@index');
+Route::GET('ujian/{kelas}','FotoUjianController@kelas');
+
+Route::POST('rename/{file}','FotoUjianController@ganti_nama');
+
 //Logout
 Route::GET('/logout', 'LoginController@logout');
