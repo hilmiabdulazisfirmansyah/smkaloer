@@ -158,6 +158,7 @@ Route::POST('/messages', 'ChatsController@sendMessage');
 
 Route::GET('postingan', 'PostinganController@index');
 Route::POST('postingan/baru', 'PostinganController@create');
+Route::GET('postingan/detail/{id}', 'PostinganController@detail');
 
 Route::GET('ujian','FotoUjianController@index');
 Route::GET('ujian/{kelas}','FotoUjianController@kelas');

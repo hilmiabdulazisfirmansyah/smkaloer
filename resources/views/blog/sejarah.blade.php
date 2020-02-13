@@ -2,7 +2,6 @@
 @section('title','Sejarah SMK ALOER WARGAKUSUMAH')
 @extends('layouts.header')
 @extends('layouts.navbar')
-@extends('layouts.carousel')
 @extends('form.Siswa')
 @section('content')
 <div class="container mt-5 mb-5 pb-5" style="background-color: #ddd;border-radius: 14px;">

@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Events\WebsocketDemoEvent;
 use App\Posts;
+use App\User;
 
 class BlogController extends Controller
 {
@@ -10,6 +11,7 @@ class BlogController extends Controller
 	public function index()
 	{
 		$posts = Posts::all();
+
 		return view('blog.home', UserAuth(), compact('posts'));
 	}
 	public function sejarah()

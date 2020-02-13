@@ -2,11 +2,10 @@
 @section('title','SMK ALOER WARGAKUSUMAH')
 @extends('layouts.header')
 @extends('layouts.navbar')
-@extends('layouts.carousel')
 @extends('form.Siswa')
 
 @section('content')
-
+@include('blog.carousel')
 @include('blog.posts.postingan')
 
 

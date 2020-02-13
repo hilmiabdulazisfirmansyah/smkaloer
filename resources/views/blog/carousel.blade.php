@@ -1,4 +1,3 @@
-@section('carousel')
 <div class="bd-example">
 	<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
 		<ol class="carousel-indicators">
@@ -39,4 +38,3 @@
 		</a>
 	</div>
 </div>
-@endsection

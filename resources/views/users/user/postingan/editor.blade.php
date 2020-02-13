@@ -22,7 +22,7 @@
             </div>
             <!-- /btn-group -->
             <input type="text" class="form-control" name="judul">
-            <input type="hidden" name="username" value="{{auth()->user()->name}}">
+            <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
             <input type="hidden" name="created_at" value="{{now()}}">
           </div><br>
           <div class="input-group">

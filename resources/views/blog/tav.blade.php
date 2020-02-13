@@ -2,7 +2,6 @@
 @section('title','Teknik Audio Video')
 @extends('layouts.header')
 @extends('layouts.navbar')
-@extends('layouts.carousel')
 @extends('form.Siswa')
 @section('content')
 <div class="card-deck mt-5">

@@ -15,7 +15,7 @@
 	<!-- end of navbar -->
 
 	<!-- Carousel -->
-	@yield('carousel')
+	
 	<!-- end carousel -->
 	@yield('formsiswa')
 
