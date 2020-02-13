@@ -9,7 +9,7 @@
 		<img class="mt-5 mb-5" src="{{ asset('img/logo.png') }}" style="width:13vw">
 	</div>
 	<div class="mb-5" style="border-bottom: solid 0.3vw #ccc;">
-		<h2 class="text-center text-success">{{$post->judul}}</h2>
+		<h2 class="text-center text-success">{{$post->judul}} - {{$post->sub_judul}}</h2>
 	</div>
 	<div class="container text-justify">
 		@php
