@@ -19,9 +19,6 @@ Route::GET('test/users','TestController@index');
 
 Route::GET('/', 'BlogController@index')->name('home');
 
-Route::GET('test', function(){
-	return view('blog.test');
-});
 
 Route::GET('backup/dapodik', 'BackupController@index');
 Route::GET('backup/dapodik/{param}', 'BackupController@dapodik');
@@ -80,6 +77,31 @@ Route::group(['middleware' => ['auth','checkRole:Siswa,Guru']], function(){
 	Route::POST('/alamat', 'SiswaController@update');
 });
 
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+	\UniSharp\LaravelFilemanager\Lfm::routes();
+});
+
+// Route::group(array('before' => 'auth'), function ()
+// {
+//     Route::get('/laravel-filemanager', '\UniSharp\LaravelFilemanager\Controllers\LfmController@show');
+//     Route::get('/laravel-filemanager/crop', '\UniSharp\LaravelFilemanager\Controllers\CropController@getCrop');
+//     Route::get('/laravel-filemanager/cropimage', '\UniSharp\LaravelFilemanager\Controllers\CropController@getCropimage');
+//     Route::get('/laravel-filemanager/cropnewimage', '\UniSharp\LaravelFilemanager\Controllers\CropController@getNewCropimage');
+//     Route::get('/laravel-filemanager/delete', '\UniSharp\LaravelFilemanager\Controllers\DeleteController@getDelete');
+//     Route::get('/laravel-filemanager/demo', '\UniSharp\LaravelFilemanager\Controllers\DemoController@index');
+//     Route::get('/laravel-filemanager/domove', '\UniSharp\LaravelFilemanager\Controllers\ItemsController@domove');
+//     Route::get('/laravel-filemanager/doresize', '\UniSharp\LaravelFilemanager\Controllers\ResizeController@performResize');
+//     Route::get('/laravel-filemanager/download', '\UniSharp\LaravelFilemanager\Controllers\DownloadController@getDownload');
+//     Route::get('/laravel-filemanager/errors', '\UniSharp\LaravelFilemanager\Controllers\LfmController@getErrors');
+//     Route::get('/laravel-filemanager/folders', '\UniSharp\LaravelFilemanager\Controllers\FolderController@getFolders');
+//     Route::get('/laravel-filemanager/jsonitems', '\UniSharp\LaravelFilemanager\Controllers\ItemsController@getItems');
+//     Route::get('/laravel-filemanager/move', '\UniSharp\LaravelFilemanager\Controllers\ItemsController@move');
+//     Route::get('/laravel-filemanager/newfolder', '\UniSharp\LaravelFilemanager\Controllers\FolderController@getAddfolder');
+//     Route::get('/laravel-filemanager/rename', '\UniSharp\LaravelFilemanager\Controllers\RenameController@getRename');
+//     Route::get('/laravel-filemanager/resize', '\UniSharp\LaravelFilemanager\Controllers\ResizeController@getResize');
+//     Route::post('/laravel-filemanager/upload', '\UniSharp\LaravelFilemanager\Controllers\UploadController@upload');
+// });
+
 Route::group(['middleware' => ['auth','checkRole:Guru']], function(){
 	Route::GET('/absensi/guru', 'AbsensiController@guru')->name('absensiGuru');
 	Route::GET('/verifikasi/{jobTitle}','AbsensiController@verifGuru')->name('verifikasiAbsensi');
@@ -130,16 +152,36 @@ Route::group(['middleware' => ['auth','checkRole:Guru']], function(){
 	Route::POST('finger/setUser', 'FingerprintController@setUser');
 	
 });
-	Route::GET('/chats', 'ChatsController@index');
-	Route::GET('/messages', 'ChatsController@fetchMessages');
-	Route::POST('/messages', 'ChatsController@sendMessage');
+Route::GET('/chats', 'ChatsController@index');
+Route::GET('/messages', 'ChatsController@fetchMessages');
+Route::POST('/messages', 'ChatsController@sendMessage');
 
 Route::GET('postingan', 'PostinganController@index');
+Route::POST('postingan/baru', 'PostinganController@create');
 
 Route::GET('ujian','FotoUjianController@index');
 Route::GET('ujian/{kelas}','FotoUjianController@kelas');
 
 Route::POST('rename/{file}','FotoUjianController@ganti_nama');
+
+Route::post('/upload_image', function() {
+	$CKEditor = Input::get('CKEditor');
+	$funcNum = Input::get('CKEditorFuncNum');
+	$message = $url = '';
+	if (Input::hasFile('upload')) {
+		$file = Input::file('upload');
+		if ($file->isValid()) {
+			$filename = $file->getClientOriginalName();
+			$file->move(storage_path().'/images/', $filename);
+			$url = public_path() .'/images/' . $filename;
+		} else {
+			$message = 'An error occured while uploading the file.';
+		}
+	} else {
+		$message = 'No file uploaded.';
+	}
+	return '<script>window.parent.CKEDITOR.tools.callFunction('.$funcNum.', "'.$url.'", "'.$message.'")</script>';
+});
 
 //Logout
 Route::GET('/logout', 'LoginController@logout');

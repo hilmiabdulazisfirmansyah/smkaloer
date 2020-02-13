@@ -23,4 +23,5 @@
 <script src="/lte/bower_components/moment/moment.js"></script>
 <script src="/lte/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
 <script src="/lte/bower_components/fullcalendar/dist/locale/id.js"></script>
-<script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
+{{-- <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script> --}}
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>

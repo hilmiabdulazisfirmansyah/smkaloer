@@ -2,13 +2,15 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Events\WebsocketDemoEvent;
+use App\Posts;
 
 class BlogController extends Controller
 {
 	
 	public function index()
 	{
-		return view('blog.home', UserAuth());
+		$posts = Posts::all();
+		return view('blog.home', UserAuth(), compact('posts'));
 	}
 	public function sejarah()
 	{

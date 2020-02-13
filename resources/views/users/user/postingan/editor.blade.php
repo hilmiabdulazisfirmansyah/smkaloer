@@ -1,7 +1,7 @@
 <div class="box box-info">
   <div class="box-header">
     <h3 class="box-title">Postingan Editor
-      <small>tulis postinganmu disini</small>
+      <small><i>tulis postinganmu disini</i></small>
     </h3>
     <!-- tools box -->
     <div class="pull-right box-tools">
@@ -14,17 +14,29 @@
       </div>
       <!-- /.box-header -->
       <div class="box-body pad">
-        <form>
+        <form action="{{ url('postingan/baru') }}" method="POST">
+          @csrf
           <div class="input-group">
             <div class="input-group-btn">
               <button type="button" class="btn btn-danger">Judul</button>
             </div>
             <!-- /btn-group -->
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" name="judul">
+            <input type="hidden" name="username" value="{{auth()->user()->name}}">
+            <input type="hidden" name="created_at" value="{{now()}}">
           </div><br>
-          <textarea id="editor1" name="editor1" rows="10" cols="80" style="visibility: hidden; display: none;">
-
-          </textarea><br>
+          <div class="input-group">
+            <div class="input-group-btn">
+              <button type="button" class="btn btn-primary">Sub Judul</button>
+            </div>
+            <!-- /btn-group -->
+            <input type="text" class="form-control" name="sub_judul">
+          </div>
+          <br>
+          <textarea name="postingan" class="form-control my-editor">
+            
+          </textarea>
+          <br>
 
           <div class="input-group" style="float:right;">
             <button type="submit" class="btn btn-primary">Simpan</button>

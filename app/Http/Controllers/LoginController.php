@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
+use App\Posts;
 
 class LoginController extends Controller
 {
@@ -27,13 +28,15 @@ class LoginController extends Controller
 			$avatar = auth()->user()->avatar;
 			$role = auth()->user()->role;
 			$link = "onClick=window.location.href="."'/profile'";
+			$posts = Posts::all();
 			return view('blog.home',
 				[
 					'users' => $users, 
 					'logout' => $logout, 
 					'avatar' => $avatar,
 					'link' => $link,
-					'role' => $role
+					'role' => $role,
+					'posts' => $posts,
 				])->with('berhasil_login', 'Selamat Datang Di Sekolah Kami');
 		}
 

@@ -6,6 +6,10 @@
 @extends('form.Siswa')
 
 @section('content')
+
+@include('blog.posts.postingan')
+
+
 <div class="card-deck">
   <div class="card">
     <div class="mx-auto mt-5">
@@ -80,6 +84,8 @@
   </div>
 </div>
 </div>
+    
+
 @endsection
 @extends('layouts.footer')
 @extends('scripts.script')
