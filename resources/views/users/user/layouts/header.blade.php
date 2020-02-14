@@ -2,11 +2,11 @@
 <!-- Logo -->
 <a href="/" class="logo" style="background-color: #324148;">
 <!-- mini logo for sidebar mini 50x50 pixels -->
-<span class="logo-mini"><img src="/lte/img/logo-primary.png" class="img-rect"></span>
+<span class="logo-mini"><img src="{{ asset('/lte/img/logo-primary.png') }}" class="img-rect"></span>
 <!-- logo for regular state and mobile devices -->
 
 <span class="logo-lg" style="margin-left: -24px;background-color: #324148;">
-<img src="/img/app_logo.png" class="img-rect">
+<img src="{{ asset('/img/app_logo.png') }}" class="img-rect">
 </span>
 </a>
 <!-- Header Navbar: style can be found in header.less -->
@@ -35,7 +35,7 @@
 </a>
 <ul class="dropdown-menu">
 <!-- User image -->
-<li class="user-header" style="background: url('/lte/img/photo1.png') center center;">
+<li class="user-header" style="background: url('{{ asset('/lte/img/photo1.png') }}') center center;">
 <img src="{{auth()->user()->avatar}}" class="img-circle" alt="User Image">
 
 <p>

@@ -85,7 +85,6 @@
 			<button {{$link}} type="button" class="btn btn-dark">
 				<img src="{{ asset($avatar) }}" class="user-image" alt="User Image" style="width: 20px;border-radius: 20px;margin-right: 10px;margin-top: -2px;height: 20px;">{{$users}}
 			</button>
-s
 			<div class="input-group-btn {{$logout}}">
 
 				<a href="{{ url("logout") }}" class="btn btn-dark text-light">Logout</a>

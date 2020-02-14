@@ -7,7 +7,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="google-site-verification" content="ncPTGQL5EW-oCJ27XsBoO-s6eiMpUh39QQfgT75eXr4" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="csrf-token" content="{{ csrf_token() }}">
-<link type="icon" rel="shortcut icon" href="{{('img/favicon.ico')}}">
+<link type="icon" rel="shortcut icon" href="{{ asset('img/favicon.ico') }}">
 {{-- Bootstrapt --}}
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -22,4 +22,5 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.12.0/build/css/themes/semantic.min.css"/>
 <!-- CSS -->
 {{-- datepicker --}}
-<link href="{{'/air-datepicker/css/datepicker.css'}}" rel="stylesheet">
+<link href="{{ asset('/air-datepicker/css/datepicker.css') }}" rel="stylesheet">
+<link href="{{ asset('css/blog.css') }}" rel="stylesheet">

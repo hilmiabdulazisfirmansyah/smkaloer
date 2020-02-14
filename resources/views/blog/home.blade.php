@@ -1,33 +1,34 @@
 @extends('layouts.master')
 @section('content')
 @include('blog.carousel')
-@include('blog.posts.postingan')
-<div class="card-deck">
-  <div class="card">
-    <div class="mx-auto mt-5">
-        <div class="rounded-circle" style="background-color:#ccc;background-image: url('{{('img/alur.png')}}');height: 8vw;width: 8vw;background-position: center;background-repeat: no-repeat;background-size: 3vw;">
+<div class="container">
+    @include('blog.posts.postingan')
+    <div class="card-deck">
+      <div class="card">
+        <div class="mx-auto mt-5">
+            <div class="rounded-circle" style="background-color:#ccc;background-image: url('{{('img/alur.png')}}');height: 8vw;width: 8vw;background-position: center;background-repeat: no-repeat;background-size: 3vw;">
+            </div>
         </div>
-    </div>
-    <div class="card-body text-wrap text-justify">
-        <h5 class="card-title text-center">Alur Pendaftaran</h5>
-        <h6 class="card-title text-center">Informasi Mengenai Alur pendaftaran Sistem PPDB online Silahkan pelajari terlebih dahulu</h6>
-        <ol class="collapse" id="more0">
-            <li>Calon Siswa melakukan entri pengajuan PENDAFTARAN secara online melalui situs PPDB Online</li>
-            <li>Cetak Tanda Bukti PENDAFTARAN</li>
-            <li>Mempersiapkan kelengkapan berkas sesuai dengan ketentuan</li>
-            <li>Calon siswa datang ke sekolah tujuan untuk melakukan VERIFIKASI PENDAFTARAN dengan membawa tanda </li>
-            <li>bukti pengajuan pendaftaran dan kelengkapan berkas</li>
-            <li>Panitia menerima dan melakukan VERIFIKASI BERKAS siswa</li>
-            <li>Operator melakukan VERIFIKASI PENDAFTARAN</li>
-            <li>Calon siswa menerima tanda bukti VERIFIKASI PENDAFTARAN</li>
-            <li>Calon siswa melihat pengumuman HASIL AKHIR secara online di situs</li>
-        </ol>
-        <div class="btn btn-dark btn-lg btn-block" data-toggle="collapse" href="#more0" role="button" aria-expanded="false" aria-controls="more0" style="cursor:pointer">
-          <small class="text-muted">Lihat Selengkapnya</small>
+        <div class="card-body text-wrap text-justify">
+            <h5 class="card-title text-center">Alur Pendaftaran</h5>
+            <h6 class="card-title text-center">Informasi Mengenai Alur pendaftaran Sistem PPDB online Silahkan pelajari terlebih dahulu</h6>
+            <ol class="collapse" id="more0">
+                <li>Calon Siswa melakukan entri pengajuan PENDAFTARAN secara online melalui situs PPDB Online</li>
+                <li>Cetak Tanda Bukti PENDAFTARAN</li>
+                <li>Mempersiapkan kelengkapan berkas sesuai dengan ketentuan</li>
+                <li>Calon siswa datang ke sekolah tujuan untuk melakukan VERIFIKASI PENDAFTARAN dengan membawa tanda </li>
+                <li>bukti pengajuan pendaftaran dan kelengkapan berkas</li>
+                <li>Panitia menerima dan melakukan VERIFIKASI BERKAS siswa</li>
+                <li>Operator melakukan VERIFIKASI PENDAFTARAN</li>
+                <li>Calon siswa menerima tanda bukti VERIFIKASI PENDAFTARAN</li>
+                <li>Calon siswa melihat pengumuman HASIL AKHIR secara online di situs</li>
+            </ol>
+            <div class="btn btn-dark btn-lg btn-block" data-toggle="collapse" href="#more0" role="button" aria-expanded="false" aria-controls="more0" style="cursor:pointer">
+              <small class="text-muted">Lihat Selengkapnya</small>
+          </div>
       </div>
   </div>
-</div>
-<div class="card">
+  <div class="card">
     <div class="mx-auto mt-5">
         <div class="rounded-circle" style="background-color:#ccc;background-image: url('{{('img/syarat.png')}}');height: 8vw;width: 8vw;background-position: center;background-repeat: no-repeat;background-size: 3vw;">
         </div>
@@ -74,6 +75,7 @@
           <small class="text-muted">Lihat Selengkapnya</small>
       </div>
   </div>
+</div>
 </div>
 </div>
 @endsection

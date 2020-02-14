@@ -7,7 +7,7 @@
 	<meta name="theme-color" content="#424242" />
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<title>AloerSmartApp</title>
-	<link href="/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
+	<link href="{{ asset('/img/favicon.ico') }}" rel="shortcut icon" type="image/x-icon">
 	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://demo1.smart-school.in/backend/usertemplate/assets/bootstrap/css/bootstrap.min.css">
 	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">

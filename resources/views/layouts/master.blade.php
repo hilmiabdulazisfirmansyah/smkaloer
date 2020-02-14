@@ -8,10 +8,7 @@
 	@include('layouts.navbar')
 	@include('form.Siswa')
 
-	<div class="container">
-		@yield('content')
-	</div>
-	
+	@yield('content')
 
 	@include('layouts.footer')
 	@include('scripts.script')

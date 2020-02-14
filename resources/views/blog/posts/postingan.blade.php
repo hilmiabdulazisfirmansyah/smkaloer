@@ -1,21 +1,24 @@
+  <div class="row mb-2">
   @foreach ($posts as $post)
-  <div style="background-color: #efefef;border-radius:5px;margin-top: 10px;margin-bottom: 10px;padding: 1vw">
-    <div class="post-preview">
-      <div class="col-md-2" style="display: inline-block;"><img src="{{ asset($post->thumb) }}" style="width: 24vh;vertical-align: baseline;"></div>
-      <div class="col-md-8" style="display: inline-block;vertical-align: top;">
-        <a href="#">
-          <h2 class="post-title" style="color:darkcyan">
-            {{ucwords($post->judul)}}
-          </h2>
-          <h3 class="post-subtitle" style="color:cadetblue">
-            {{ucwords($post->sub_judul)}}
+    <div class="col-md-6">
+      <div class="card flex-md-row mb-4 box-shadow h-md-250" style="background-color: gainsboro">
+        <div class="card-body d-flex flex-column align-items-start">
+          <strong class="d-inline-block mb-2 text-primary">{{ucwords($post->judul)}}</strong>
+          <h3 class="mb-0">
+            <a class="text-dark" href="#">{{ucwords($post->sub_judul)}}</a>
           </h3>
-        </a>
-        <hr>
-        <div class="big-text">
+          <div class="mb-1 text-muted">{{$post->created_at->locale('ID')->isoFormat('LLLL')}}
+            <p class="post-meta"><i>Di Posting Oleh -</i>
+        <a href="#">
           @php
-          $string = strip_tags($post->postingan);
-          if (strlen($string) > 500) {
+          $writer = App\User::find($post->user_id);
+          @endphp
+          {{$writer->name}}
+        </a></p></div>
+          <p class="card-text mb-auto">
+           @php
+           $string = strip_tags($post->postingan);
+           if (strlen($string) > 500) {
 
     // truncate string
             $stringCut = substr($string, 0, 500);
@@ -27,18 +30,11 @@
           echo $string;
           // echo htmlspecialchars_decode($post->postingan);
           @endphp
-        </div>
-          ....
-          <a href="{{ url('postingan/detail/') }}/{{$post->id}}">Baca Selengkapnya</a>
-        <p class="post-meta"><i>Posted by</i>
-          <a href="#">
-            @php
-              $writer = App\User::find($post->user_id);
-            @endphp
-            {{$writer->name}}
-          </a>
-          <i>pada hari {{$post->created_at->locale('ID')->isoFormat('LLLL')}}</i></p>
-        </div>
+        </p>
+        <a href="{{ url('postingan/detail/') }}/{{$post->id}}">Baca Selengkapnya</a>
       </div>
+      <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Thumbnail [200x250]" style="width: 200px; height: 250px;" src="{{ asset($post->thumb) }}" data-holder-rendered="true">
     </div>
-    @endforeach
+  </div>
+@endforeach
+</div>
