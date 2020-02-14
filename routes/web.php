@@ -41,7 +41,7 @@ Route::GET('/tav', 'BlogController@tav');
 Route::GET('/tkr', 'BlogController@tkr');
 Route::GET('/tkj', 'BlogController@tkj');
 Route::GET('/mikrotik', 'BlogController@mikrotik');
-Route::GET('/bkk', 'BlogController@mikrotik');
+Route::GET('/bkk', 'BlogController@bkk');
 	// route lokasi
 Route::GET('/provinsi', 'WilayahController@provinsi');
 Route::GET('/kabupaten', 'WilayahController@kabupaten');

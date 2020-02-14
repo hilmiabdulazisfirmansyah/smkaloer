@@ -1,8 +1,5 @@
 @extends('layouts.master')
 @section('title','Postingan SMK ALOER WARGAKUSUMAH')
-@extends('layouts.header')
-@extends('layouts.navbar')
-@extends('form.Siswa')
 @section('content')
 <div class="container mt-5 mb-5 pb-5" style="background-color: #ddd;border-radius: 14px;">
 	<div class="text-center">
@@ -23,5 +20,3 @@
 
 @include('blog.posts.postingan')
 @endsection
-@extends('layouts.footer')
-@extends('scripts.script')

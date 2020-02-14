@@ -1,7 +1,7 @@
   @foreach ($posts as $post)
   <div style="background-color: #efefef;border-radius:5px;margin-top: 10px;margin-bottom: 10px;padding: 1vw">
     <div class="post-preview">
-      <div class="col-md-2" style="display: inline-block;"><img src="{{$post->thumb}}" style="width: 24vh;vertical-align: baseline;"></div>
+      <div class="col-md-2" style="display: inline-block;"><img src="{{ asset($post->thumb) }}" style="width: 24vh;vertical-align: baseline;"></div>
       <div class="col-md-8" style="display: inline-block;vertical-align: top;">
         <a href="#">
           <h2 class="post-title" style="color:darkcyan">

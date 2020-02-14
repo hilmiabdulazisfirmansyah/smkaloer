@@ -1,4 +1,3 @@
-@section('navbar')
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
@@ -84,9 +83,9 @@
 		<div class="btn-group">
 			
 			<button {{$link}} type="button" class="btn btn-dark">
-				<img src="{{$avatar}}" class="user-image" alt="User Image" style="width: 20px;border-radius: 20px;margin-right: 10px;margin-top: -2px;height: 20px;">{{$users}}
+				<img src="{{ asset($avatar) }}" class="user-image" alt="User Image" style="width: 20px;border-radius: 20px;margin-right: 10px;margin-top: -2px;height: 20px;">{{$users}}
 			</button>
-
+s
 			<div class="input-group-btn {{$logout}}">
 
 				<a href="{{ url("logout") }}" class="btn btn-dark text-light">Logout</a>
@@ -94,4 +93,3 @@
 		</div>
 	</div>
 </nav>
-@endsection

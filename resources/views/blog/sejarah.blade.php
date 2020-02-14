@@ -1,8 +1,5 @@
 @extends('layouts.master')
 @section('title','Sejarah SMK ALOER WARGAKUSUMAH')
-@extends('layouts.header')
-@extends('layouts.navbar')
-@extends('form.Siswa')
 @section('content')
 <div class="container mt-5 mb-5 pb-5" style="background-color: #ddd;border-radius: 14px;">
 	<div class="text-center">
@@ -30,5 +27,3 @@
 		<img src="{{'img/vm.png'}}" style="width: 100%;height: max-content;">
 	</div>
 	@endsection
-	@extends('layouts.footer')
-	@extends('scripts.script')

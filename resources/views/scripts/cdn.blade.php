@@ -31,4 +31,3 @@ src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" int
 {{-- datepicker --}}
 <script src="{{'/air-datepicker/js/datepicker.js'}}"></script>
 <script src="{{'/air-datepicker/js/i18n/datepicker.en.js'}}"></script>
-

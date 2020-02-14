@@ -1,5 +1,3 @@
-@section('script')
-
 @include('scripts.cdn')
 
 <script>
@@ -17,6 +15,3 @@
 @include('scripts.ajaxEventSelect')
 @include('scripts.ajaxEventSearch')
 @include('scripts.session')
-
-
-@endsection

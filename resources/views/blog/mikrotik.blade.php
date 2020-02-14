@@ -1,8 +1,5 @@
 @extends('layouts.master')
 @section('title','Mikrotik Academy')
-@extends('layouts.header')
-@extends('layouts.navbar')
-@extends('form.Siswa')
 @section('content')
 <div class="card-deck mt-5">
 	<div class="card" style="background-color: #ddd;border-radius: 14px;">
@@ -58,5 +55,3 @@
 	</div>
 </div>
 @endsection
-@extends('layouts.footer')
-@extends('scripts.script')

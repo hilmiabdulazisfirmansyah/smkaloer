@@ -1,35 +1,19 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 	<title>@yield('title')</title>
-	@yield('header')
+	@include('layouts.header')
 </head>
+<body>
+	@include('layouts.navbar')
+	@include('form.Siswa')
 
-
-
-<body style="padding-top:50px">
-	<!-- navbar -->
-	{{-- <img src="{{('img/logo.jpg')}}" class="card-img-top" style="margin-top:60px"> --}}
-@yield('navbar')
-	<!-- end of navbar -->
-
-	<!-- Carousel -->
-	
-	<!-- end carousel -->
-	@yield('formsiswa')
-
-	<!-- container -->
-	<div class="container" id="content">
-		{{-- card info Pendaftaran --}}
+	<div class="container">
 		@yield('content')
-		{{-- end card info Pendaftaran --}}
 	</div>
-	@yield('footer')
+	
 
-	{{-- library JS --}}
-	{{-- JQuery --}}
-	@yield('script')
+	@include('layouts.footer')
+	@include('scripts.script')
 </body>
-
 </html>

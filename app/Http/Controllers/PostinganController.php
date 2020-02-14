@@ -22,13 +22,10 @@ class PostinganController extends Controller
 
     public function detail(Request $request, $id){
         $post = Posts::find($id);
-        $users = auth()->user()->name;
         $logout = 'd-block';
-        $avatar = auth()->user()->avatar;
-        $role = auth()->user()->role;
         $link = "onClick=window.location.href="."'/profile'";
         $writer = Posts::find($id);
         $posts = Posts::all();
-        return view('blog.posts.detail',compact('post','users','logout','avatar','role','link','writer','posts'));
+        return view('blog.posts.detail',UserAuth(),compact('post','logout','link','writer','posts'));
     }
 }
