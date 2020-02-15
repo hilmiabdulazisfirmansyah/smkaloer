@@ -1,9 +1,7 @@
-<script src="js/app.js"></script>
+{{-- <script src="{{ asset('js/app.js') }}"></script> --}}
 
 <script 
-src="https://code.jquery.com/jquery-3.4.1.js"
-integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-crossorigin="anonymous">
+src="{{ asset('vendor/jquery/jquery-3.2.1.min.js') }}">
 </script>
 
 {{-- Alertify --}}
@@ -11,23 +9,16 @@ crossorigin="anonymous">
 
 {{-- popper --}}
 <script 
-
-src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-crossorigin="anonymous">
-
+src="{{ asset('vendor/bootstrap/js/popper.min.js') }}">
 </script>
-
 
 {{-- JS BootStrap --}}
 <script 
-
-src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-	
+src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}">
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/0.8.1/cropper.min.js"></script>
 
-
+<script src="{{ asset('vendor/laravel-filemanager/js/cropper.min.js') }}"></script>
 
 {{-- datepicker --}}
-<script src="{{'/air-datepicker/js/datepicker.js'}}"></script>
-<script src="{{'/air-datepicker/js/i18n/datepicker.en.js'}}"></script>
+<script src="{{ asset('air-datepicker/js/datepicker.js') }}"></script>
+<script src="{{ asset('air-datepicker/js/i18n/datepicker.en.js') }}"></script>

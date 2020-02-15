@@ -8,11 +8,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <link type="icon" rel="shortcut icon" href="{{ asset('img/favicon.ico') }}">
-{{-- Bootstrapt --}}
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+{{-- Bootstrap --}}
 
 {{-- icon bootstrap --}}
-<link rel="stylesheet" type="text/css" href="{{'/open-iconic-master/font/css/open-iconic-bootstrap.css'}}">
+<link rel="stylesheet" type="text/css" href="{{ asset('open-iconic-master/font/css/open-iconic-bootstrap.css') }}">
 
 {{-- Alertify --}}
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.12.0/build/css/alertify.min.css"/>
@@ -21,6 +20,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- Semantic UI theme -->
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.12.0/build/css/themes/semantic.min.css"/>
 <!-- CSS -->
+<link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
 {{-- datepicker --}}
-<link href="{{ asset('/air-datepicker/css/datepicker.css') }}" rel="stylesheet">
+<link href="{{ asset('air-datepicker/css/datepicker.css') }}" rel="stylesheet">
 <link href="{{ asset('css/blog.css') }}" rel="stylesheet">

@@ -9,10 +9,9 @@
 	<title>AloerSmartApp</title>
 	<link href="{{ asset('/img/favicon.ico') }}" rel="shortcut icon" type="image/x-icon">
 	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://demo1.smart-school.in/backend/usertemplate/assets/bootstrap/css/bootstrap.min.css">
-	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-	<link rel="stylesheet" href="/css/form-elements.css">
-	<link rel="stylesheet" href="/css/style.css">
+	<link href="{{ asset('fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link rel="stylesheet" href="{{ asset('css/form-elements.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.js" integrity="sha256-AKEjDiK2rz+d8TSPLNVNydvgJvOkG5veMAnc79FkiuE=" crossorigin="anonymous"></script>
 	<style type="text/css">
 		.width100, .width50{font-size: 12px !important;}
