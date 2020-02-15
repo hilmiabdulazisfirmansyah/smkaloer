@@ -66,7 +66,8 @@ $(function () {
 	CKEDITOR.replace('postingan', options);
 </script> --}}
 
-
+{{-- <script src="//cdn.tinymce.com/4/tinymce.min.js"></script> --}}
+<script type="text/javascript" src="{{ asset('vendor/tinymce/js/tinymce/tinymce.min.js') }}"></script>
 <script>
   var editor_config = {
     path_absolute : "/",
@@ -90,6 +91,7 @@ $(function () {
         cmsURL = cmsURL + "&type=Files";
       }
 
+
       tinyMCE.activeEditor.windowManager.open({
         file : cmsURL,
         title : 'Filemanager',
@@ -101,13 +103,7 @@ $(function () {
     }
   };
 
-
   tinymce.init(editor_config);
-  tinymce.init({
-  selector: "textarea",  // change this value according to your HTML
-  plugins: "advcode",
-  toolbar: "code"
-});
 </script>
 
 @include('users.user.scripts.scriptsJobGuru')

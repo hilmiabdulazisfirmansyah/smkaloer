@@ -259,9 +259,9 @@
       }
     ];
   </script>
-  <script>{!! \File::get(base_path('vendor/unisharp/laravel-filemanager/public/js/script.js')) !!}</script>
+  {{-- <script>{!! \File::get(resource_path('assets/vendor/laravel-filemanager/script.js')) !!}</script> --}}
   {{-- Use the line below instead of the above if you need to cache the script. --}}
-  {{-- <script src="{{ asset('vendor/laravel-filemanager/js/script.js') }}"></script> --}}
+  <script src="{{ asset('vendor/laravel-filemanager/js/script.js') }}"></script>
   <script>
     Dropzone.options.uploadForm = {
       paramName: "upload[]", // The name that will be used to transfer the file
