@@ -6,12 +6,14 @@
 	<div class="row">
 		<div class="col-md-8 blog-main">
 			<h3 class="pb-3 mb-4 font-italic border-bottom">
-				<img src="{{ asset('img/logo.png') }}" style="width: 5vw"> {{$post->judul}} - {{$post->sub_judul}}
+				<img src="{{ asset('img/logo.png') }}" style="width: 5vw"> 
+				{{-- {{$post->judul}} - {{$post->sub_judul}} --}}
+				<span>SMK ALOER WARGAKUSUMAH</span>
 			</h3>
 
 			<div class="blog-post">
-				{{-- <h2 class="blog-post-title">{{$post->judul}}</h2>
-				<h3 class="blog-post-title">{{$post->sub_judul}}</h3> --}}
+				<h2 class="blog-post-title">{{$post->judul}}</h2>
+				<h3 class="blog-post-title">{{$post->sub_judul}}</h3>
 				<p class="blog-post-meta">{{$post->created_at->locale('ID')->isoFormat('LLLL')}} oleh <a href="#"> @php
 				$writer = App\User::find($post->user_id);
 				@endphp

@@ -101,7 +101,13 @@ $(function () {
     }
   };
 
+
   tinymce.init(editor_config);
+  tinymce.init({
+  selector: "textarea",  // change this value according to your HTML
+  plugins: "advcode",
+  toolbar: "code"
+});
 </script>
 
 @include('users.user.scripts.scriptsJobGuru')
