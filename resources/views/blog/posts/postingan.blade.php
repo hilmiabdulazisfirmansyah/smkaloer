@@ -4,9 +4,9 @@
       <div class="card flex-md-row mb-4 box-shadow h-md-250" style="background-color: gainsboro">
         <div class="card-body d-flex flex-column align-items-start">
           <strong class="d-inline-block mb-2 text-primary">{{ucwords($post->judul)}}</strong>
-          <h3 class="mb-0">
+          <h4 class="mb-0">
             <a class="text-dark" href="#">{{ucwords($post->sub_judul)}}</a>
-          </h3>
+          </h4>
           <div class="mb-1 text-muted">{{$post->created_at->locale('ID')->isoFormat('LLLL')}}
             <p class="post-meta"><i>Di Posting Oleh -</i>
         <a href="#">
