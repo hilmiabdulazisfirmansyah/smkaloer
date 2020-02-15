@@ -25,7 +25,7 @@ class PostinganController extends Controller
         $logout = 'd-block';
         $link = "onClick=window.location.href="."'/profile'";
         $writer = Posts::find($id);
-        $posts = Posts::all();
+        $posts = Posts::orderBy('created_at','desc')->get();
         return view('blog.posts.detail',UserAuth(),compact('post','logout','link','writer','posts'));
     }
 }

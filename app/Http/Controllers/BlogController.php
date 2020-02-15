@@ -10,7 +10,7 @@ class BlogController extends Controller
 	
 	public function index()
 	{
-		$posts = Posts::all();
+		$posts = Posts::orderBy('created_at','desc')->get();
 
 		return view('blog.home', UserAuth(), compact('posts'));
 	}
