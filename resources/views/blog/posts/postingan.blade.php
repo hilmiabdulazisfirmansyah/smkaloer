@@ -18,10 +18,10 @@
           <p class="card-text mb-auto">
            @php
            $string = strip_tags($post->postingan);
-           if (strlen($string) > 500) {
+           if (strlen($string) > 50) {
 
     // truncate string
-            $stringCut = substr($string, 0, 500);
+            $stringCut = substr($string, 0, 50);
             $endPoint = strrpos($stringCut, ' ');
 
     //if the string doesn't contain any space then it will cut without word basis.
