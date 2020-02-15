@@ -15,13 +15,13 @@
           @endphp
           {{$writer->name}}
         </a></p></div>
-          <p class="card-text mb-auto">
-         {{--   @php
+          <div class="card-text mb-auto text-wrap" style="overflow: hidden;">
+           @php
            $string = strip_tags($post->postingan);
-           if (strlen($string) > 50) {
+           if (strlen($string) > 500) {
 
     // truncate string
-            $stringCut = substr($string, 0, 50);
+            $stringCut = substr($string, 0, 500);
             $endPoint = strrpos($stringCut, ' ');
 
     //if the string doesn't contain any space then it will cut without word basis.
@@ -29,8 +29,8 @@
           }
           echo $string;
           // echo htmlspecialchars_decode($post->postingan);
-          @endphp --}}
-        </p>
+          @endphp
+        </div>
         <a href="{{ url('postingan/detail/') }}/{{$post->id}}">Baca Selengkapnya</a>
       </div>
       <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Thumbnail [200x250]" style="width: 200px; height: 250px;" src="{{ asset($post->thumb) }}" data-holder-rendered="true">
