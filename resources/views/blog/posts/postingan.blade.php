@@ -16,7 +16,7 @@
           {{$writer->name}}
         </a></p></div>
           <p class="card-text mb-auto">
-           @php
+         {{--   @php
            $string = strip_tags($post->postingan);
            if (strlen($string) > 50) {
 
@@ -29,7 +29,7 @@
           }
           echo $string;
           // echo htmlspecialchars_decode($post->postingan);
-          @endphp
+          @endphp --}}
         </p>
         <a href="{{ url('postingan/detail/') }}/{{$post->id}}">Baca Selengkapnya</a>
       </div>
