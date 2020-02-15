@@ -8,11 +8,12 @@
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<title>AloerSmartApp</title>
 	<link href="{{ asset('/img/favicon.ico') }}" rel="shortcut icon" type="image/x-icon">
-	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-	<link href="{{ asset('fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-	<link rel="stylesheet" href="{{ asset('css/form-elements.css') }}">
-	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.js" integrity="sha256-AKEjDiK2rz+d8TSPLNVNydvgJvOkG5veMAnc79FkiuE=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+	<link rel="stylesheet" type="text/css" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/form-elements.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/customScrollbar.css') }}">
 	<style type="text/css">
 		.width100, .width50{font-size: 12px !important;}
 		.discover{margin-top: -90px;position: relative;z-index: -1;}
@@ -146,7 +147,7 @@ a.forgot {padding-top:0px;}
 						<div class="loginbg">
 							<div class="form-top">
 								<div class="form-top-left">
-									<img src="/img/app_logo.png" class="logowidth">
+									<img src="{{ asset('img/app_logo.png') }}" class="logowidth">
 
 								</div>
 								<div class="form-top-right"> <i class="fa fa-key"></i>
@@ -155,10 +156,10 @@ a.forgot {padding-top:0px;}
 							<div class="form-bottom">
 								<h3 class="font-white">User Login</h3>
 
-								<div class="btn-group btn-group-justified" style="margin-top:10px;margin-bottom:10px;">
+								{{-- <div class="btn-group btn-group-justified" style="margin-top:10px;margin-bottom:10px;">
 									<a href="#" class="btn btn-primary width50" onclick="copy('NIK Orang Tua / No Hp', 'Password')" data-toggle="tooltip" data-placement="top" title="" data-original-title="copy" style="background:#e91e63;"><i class="fa fa-users ispace"></i> Orang Tua</a>
 									<a href="#" class="btn btn-primary width50" onclick="copy('NIK Siswa / Email', 'Password')" data-toggle="tooltip" data-placement="top" title="" data-original-title="copy" style="background:#0084B4;"><i class="fa fa-user ispace"></i> Siswa</a>
-								</div>
+								</div> --}}
 
 								<form action="{{ url('siswa') }}" method="post">
 									@csrf
@@ -205,14 +206,11 @@ a.forgot {padding-top:0px;}
 				</div>
 			</div>
 		</div>
-		<script
-		src="https://code.jquery.com/jquery-3.4.1.js"
-		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-		crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js" integrity="sha256-V52dl3OFjoY+fYAkifhLJ7f1V7mZAKPGCQoWzoQxrEU=" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.js" integrity="sha256-VSluyclkkEBBFNZ6S8I2Okq/R6W0InHkqdukNreEYOY=" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.js" integrity="sha256-AKEjDiK2rz+d8TSPLNVNydvgJvOkG5veMAnc79FkiuE=" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="{{ asset('vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}"></script>
+		<script type="text/javascript" src="{{ asset('js/backstretch.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('js/customScrollbar.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('js/mousewheel.js') }}"></script>
 	</body>
 	</html>
 	<script type="text/javascript">
