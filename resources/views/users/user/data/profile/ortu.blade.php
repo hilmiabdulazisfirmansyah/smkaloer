@@ -7,7 +7,7 @@
 				<td class="col-md-4">Nama Ayah</td>
 
 				<td class="col-md-5">{{ $ortu->nama_ayah }}</td>
-				<td rowspan="3"><img class="profile-user-img img-responsive img-circle" src="{{auth()->user()->avatar}}"></td>
+				<td rowspan="3"><img class="profile-user-img img-responsive img-circle" src="{{ url('auth()->user()->avatar') }}"></td>
 			</tr>
 			<tr>
 				<td>Nomor HP Ayah</td>
@@ -20,7 +20,7 @@
 			<tr>
 				<td>Nama Ibu</td>
 				<td>{{ $ortu->nama_ibu_kandung }}</td>
-				<td rowspan="3"><img class="profile-user-img img-responsive img-circle" src="{{auth()->user()->avatar}}"></td>
+				<td rowspan="3"><img class="profile-user-img img-responsive img-circle" src="{{ url('auth()->user()->avatar') }}"></td>
 			</tr>
 			<tr>
 				<td>Nomor HP Ibu</td>

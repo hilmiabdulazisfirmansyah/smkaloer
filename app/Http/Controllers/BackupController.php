@@ -123,21 +123,21 @@ class BackupController extends Controller
 
 		// cek parameter route			
 			$grab 	= backup_guru($url); // fungsi CURL
-			$select = DB::connection('mysql3')->table($param)->get(); //cek data yang tersedia
+			$select = DB::connection('dapodik')->table($param)->get(); //cek data yang tersedia
 
 			if (count($select) == 0) { // jika data tidak tersedia maka data akan di masukkan satu persatu
 				foreach ($grab as $data) {
 
-					$insert = DB::connection('mysql3')->table($param)->insert([
+					$insert = DB::connection('dapodik')->table($param)->insert([
 						$col => $data[$col]
 					]); // insert data id ptk
 
-					$update = DB::connection('mysql3')->table($param)->where($col, $data[$col])->update($data);
+					$update = DB::connection('dapodik')->table($param)->where($col, $data[$col])->update($data);
 					// update data sesuai dengan id ptk yang telah di insert
 				}
 			}else{ // jika data tersedia maka akan di lakukan update
 				foreach ($grab as $data) {
-					$update = DB::connection('mysql3')->table($param)->where($col, $data[$col])->update($data);
+					$update = DB::connection('dapodik')->table($param)->where($col, $data[$col])->update($data);
 				}
 			}
 

@@ -46,3 +46,13 @@ function webservice($port,$url,$parameter){
 	}
 	return $response;
 }
+
+function random_color() {
+	$color = [
+				'bg-light text-dark border-primary',
+				'bg-dark text-white',
+			];
+     $key = array_rand($color);
+    
+    return $color[$key];
+}

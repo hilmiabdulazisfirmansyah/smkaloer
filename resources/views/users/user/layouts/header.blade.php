@@ -30,14 +30,17 @@
 <!-- User Account: style can be found in dropdown.less -->
 <li class="dropdown user user-menu">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-<img src="{{auth()->user()->avatar}}" class="user-image" alt="User Image">
+<div class="user-image Avatar-header" alt="User Image">
+</div>
 <span class="hidden-xs">{{auth()->user()->name}}</span>
 </a>
 <ul class="dropdown-menu">
 <!-- User image -->
 <li class="user-header" style="background: url('{{ asset('/lte/img/photo1.png') }}') center center;">
-<img src="{{auth()->user()->avatar}}" class="img-circle" alt="User Image">
 
+<div class="img-circle Avatar-widget" alt="User Image">
+</div>
+	
 <p>
 {{auth()->user()->name}} - {{auth()->user()->job_title}}
 <small>Bergabung sejak : {{auth()->user()->created_at->toDateString()}}</small>

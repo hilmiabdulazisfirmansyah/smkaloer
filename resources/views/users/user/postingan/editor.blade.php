@@ -1,3 +1,5 @@
+@include('users.user.postingan.table')
+
 <div class="box box-info">
   <div class="box-header">
     <h3 class="box-title">Postingan Editor

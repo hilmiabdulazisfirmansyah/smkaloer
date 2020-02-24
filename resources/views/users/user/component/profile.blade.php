@@ -1,15 +1,19 @@
+@include('users.user.layouts.partials.modal.editAvatar')
+
 <div class="col-md-4">
 	<!-- Widget: user widget style 1 -->
+	
 	<div class="box box-widget widget-user">
 		<!-- Add the bg color to the header using any of the bg-* classes -->
-		<div class="widget-user-header bg-black" style="background: url('/lte/img/photo1.png') center center;">
+		<div class="widget-user-header bg-black" style="background: url({{ asset('/lte/img/photo1.png') }}) center center;">
 			<h3 class="widget-user-username" style="font:caption">{{auth()->user()->name}}</h3>
 			<h5 class="widget-user-desc">{{auth()->user()->job_title}}</h5>
 		</div>
 		<div class="widget-user-image">
-			<img id="imgFileUpload" class="img-circle" src="{{auth()->user()->avatar}}" alt="User Avatar" style="height: 90px;cursor:pointer">
+			<div class="img-circle Avatar" alt="User Avatar" data-toggle="modal" data-target="#editAvatar">
+				
+			</div>
 			<span id="spnFilePath"></span>
-			<input type="file" id="FileUpload1" style="display: none" />
 		</div>
 
 		<div class="box-footer">
