@@ -14,17 +14,23 @@ class SyncController extends Controller
 		$param = $param;
 		switch ($param) {
 			case 'sekolah':
-			$url = "http://4.4.4.1:5774/rest/Sekolah/".$sekolah_id;
+
+			$url = "http://192.168.100.6:5774/rest/Sekolah/".$sekolah_id;
+
 			$database = DB::connection('dapodik')->table('sekolah')->get(['status_kepemilikan_id', 'yayasan_id', 'mbs', 'nm_wp', 'npwp', 'no_rekening', 'nama_bank', 'cabang_kcp_unit', 'rekening_atas_nama', 'nomor_telepon', 'nomor_fax', 'email', 'website']);
 			break;
 
 			case 'data_periodik':
-			$url = "http://4.4.4.1:5774/rest/SekolahLongitudinal/".$sekolah_id."%3A".$semester_id;
+
+			$url = "http://192.168.100.6:5774/rest/SekolahLongitudinal/".$sekolah_id."%3A".$semester_id;
+
 			$database = DB::connection('dapodik')->table('data_periodik')->get(['waktu_penyelenggaraan_id', 'sumber_listrik_id', 'daya_listrik', 'kontinuitas_listrik', 'partisipasi_bos', 'sertifikasi_iso_id', 'akses_internet_2_id', 'akses_internet_id']);
 			break;
 
 			case 'sanitasi':
-			$url = 'http://4.4.4.1:5774/rest/Sanitasi/'.$sekolah_id.'%3A'.$semester_id;
+
+			$url = 'http://192.168.100.6:5774/rest/Sanitasi/'.$sekolah_id.'%3A'.$semester_id;
+
 			$database = DB::connection('dapodik')->table('sanitasi')->where('semester_id', $semester_id)->get(['ketersediaan_air','kecukupan_air','siswa_bawa_air','minum_siswa', 'memproses_air', 'tempat_cuci_tangan', 'a_sabun_air_mengalir', 'toilet_siswa_kk', 'tipe_jamban', 'jml_jamban_l_g', 'jml_jamban_p_g', 'jml_jamban_lp_g', 'jml_jamban_l_tg', 'jml_jamban_p_tg', 'jml_jamban_lp_tg']);
 			break;
 
@@ -42,7 +48,9 @@ class SyncController extends Controller
 				
 				$database = DB::connection('dapodik')->table('kepanitiaan')->get();
 				foreach ($database as $data) {
-					$url = 'http://4.4.4.1:5774/rest/Kepanitiaan/'.$data->id_panitia;
+
+					$url = 'http://192.168.100.6:5774/rest/Kepanitiaan/'.$data->id_panitia;
+
 					$sync_update = DB::connection('dapodik')->table('kepanitiaan')->where('id_panitia', $data->id_panitia)->get();
 					$sync_update = json_encode($sync_update, true);
 					$sync_update = Str::replaceFirst('[', '', $sync_update);
@@ -54,7 +62,9 @@ class SyncController extends Controller
 			// jika data dapodik lebih kecil dari data di database maka akan melakukan tambah data
 			// -------------------
 			// api dapodik
-				$url = 'http://4.4.4.1:5774/rest/Kepanitiaan'; 
+
+				$url = 'http://192.168.100.6:5774/rest/Kepanitiaan'; 
+
 				$database = DB::connection('dapodik')->table('kepanitiaan')->get(['sekolah_id','id_jns_panitia', 'nm_panitia', 'instansi', 'tkt_panitia', 'sk_tugas', 'tmt_sk_tugas', 'tst_sk_tugas', 'a_pasang_papan', 'a_formulir', 'a_silabus', 'a_berlaku_pos', 'a_sosialisasi_pos', 'a_ks_edukatif', 'id_panitia', 'sekolah_id_str', 'id_jns_panitia_str']); //ambil data dari database
 				$cek_lagi_dapodik = backup_dapodik($url);
 				echo $cek_lagi_dapodik;

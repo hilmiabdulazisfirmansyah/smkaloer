@@ -10,7 +10,10 @@ if (strlen($nama) > 18) {
 		<!-- Sidebar user panel -->
 		<div class="user-panel">
 			<div class="pull-left image">
-				<img src="{{auth()->user()->avatar}}" class="img-circle" alt="User Image">
+				<a href="{{ url('profile') }}">
+					<div class="img-circle Avatar-sidebar" alt="User Image">
+					</div>
+				</a>
 			</div>
 			<div class="pull-left info">
 				<p>{{ $nama }}</p>

@@ -38,4 +38,41 @@
 <!-- Google Font -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
+<style type="text/css">
+  .Avatar {
+  background:url('{{ auth()->user()->avatar }}');
+  background-position: center;
+  background-size: cover;
+  height: 100px;max-height: 100px;
+  width: 100px;max-width: 100px;
+  cursor:pointer;
+}
+
+.Avatar-sidebar {
+  background:url('{{ auth()->user()->avatar }}');
+  background-position: center;
+  background-size: cover;
+  height: 45px;max-height: 45px;
+  width: 45px;max-width: 45px;
+  cursor:pointer;
+}
+
+.Avatar-header {
+  background:url('{{ auth()->user()->avatar }}');
+  background-position: center;
+  background-size: cover;
+  height: 25px;max-height: 25px;
+  width: 25px;max-width: 25px;
+  cursor:pointer;
+}
+
+.Avatar-widget {
+  background:url('{{ auth()->user()->avatar }}');
+  background-position: center;
+  background-size: cover;
+  height: 90px;max-height: 90px;
+  width: 90px;max-width: 90px;
+  cursor:pointer;
+}
+</style>
 @endsection

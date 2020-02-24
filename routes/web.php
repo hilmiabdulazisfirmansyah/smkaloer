@@ -184,5 +184,7 @@ Route::post('/upload_image', function() {
 	return '<script>window.parent.CKEDITOR.tools.callFunction('.$funcNum.', "'.$url.'", "'.$message.'")</script>';
 });
 
+Route::POST('upload/avatar','UploadController@avatar');
+
 //Logout
 Route::GET('/logout', 'LoginController@logout');

@@ -4,7 +4,7 @@ function grabDapo(){
 	$ip_dapodik = '4.4.4.1';
 	$username = 'dedeheryanto15@gmail.com';
 	$password = 'Samrat235';
-	$semester_id = '20191';
+	$semester_id = '20192';
 
 	$url = 'https://data.dikdasmen.kemdikbud.go.id';
 	$cookie = "cookie.txt";
@@ -43,7 +43,7 @@ function loginDapodikSiswa(){
 	$ip_dapodik = '4.4.4.1';
 	$username = 'dedeheryanto15@gmail.com';
 	$password = 'Samrat235';
-	$semester_id = '20191';
+	$semester_id = '20192';
 
 	$url = 'http://'.$ip_dapodik.':5774/login';
 	$cookie = "cookie.txt";

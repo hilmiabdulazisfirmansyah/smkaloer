@@ -1,3 +1,17 @@
+<style type="text/css">
+	.Avatar-header {
+		@if (auth()->user())
+		background:url('{{ auth()->user()->avatar }}');
+		@endif
+		background-position: center;
+		background-size: cover;
+		height: 30px;max-height: 30px;
+		width: 30px;max-width: 30px;
+		cursor:pointer;
+		border-radius: 50%;
+		margin-top: 2px;
+	}
+</style>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
@@ -81,10 +95,12 @@
 		</ul>
 		<!-- Button Login -->
 		<div class="btn-group">
-			
-			<button {{$link}} type="button" class="btn btn-dark">
-				<img src="{{ asset($avatar) }}" class="user-image" alt="User Image" style="width: 20px;border-radius: 20px;margin-right: 10px;margin-top: -2px;height: 20px;">{{$users}}
-			</button>
+			<a href="{{ url('profile') }}">
+				<div class="user-image Avatar-header">
+				</div>
+			</a>
+
+			<button {{$link}} type="button" class="btn btn-dark">{{trim($users)}}</button>
 			<div class="input-group-btn {{$logout}}">
 
 				<a href="{{ url("logout") }}" class="btn btn-dark text-light">Logout</a>
