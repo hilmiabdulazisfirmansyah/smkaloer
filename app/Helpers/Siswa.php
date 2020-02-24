@@ -1,7 +1,7 @@
 <?php
 
 function grabDapo(){
-	$ip_dapodik = '192.168.100.6';
+	$ip_dapodik = '4.4.4.1';
 	$username = 'dedeheryanto15@gmail.com';
 	$password = 'Samrat235';
 	$semester_id = '20191';
@@ -40,7 +40,7 @@ function grabDapo(){
 }
 
 function loginDapodikSiswa(){
-	$ip_dapodik = '192.168.100.6';
+	$ip_dapodik = '4.4.4.1';
 	$username = 'dedeheryanto15@gmail.com';
 	$password = 'Samrat235';
 	$semester_id = '20191';
@@ -51,7 +51,7 @@ function loginDapodikSiswa(){
 		unlink($cookie);
 	}
 
-	$postfields = 'username=dedeheryanto15%40gmail.com&password=Samrat235&semester_id=20191';
+	$postfields = 'username=dedeheryanto15%40gmail.com&password=Samrat235&semester_id=20192';
 
 	$curl = curl_init();
 	curl_setopt_array($curl, array(

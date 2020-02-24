@@ -18,7 +18,7 @@ class grabDapo extends Command
      *
      * @var string
      */
-    protected $description = 'null';
+    protected $description = 'Login Dapodik Local';
 
     /**
      * Create a new command instance.
