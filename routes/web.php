@@ -15,9 +15,32 @@
 // Route untuk Halaman Awal
 Route::GET('test/users','TestController@index');
 
+Route::GET('/','BlogController@index')->name('home');
+Route::GET('absensi', function(){return View('users.user.index');})->name('absensi');
+Route::GET('struktur','BlogController@index')->name('struktur');
+Route::GET('sejarah', 'BlogController@index')->name('sejarah');
+Route::GET('visi', 'BlogController@visi')->name('visi_misi');
+Route::GET('tav', 'BlogController@tav')->name('tav');
+Route::GET('tkr', 'BlogController@tkr')->name('tkr');
+Route::GET('tkj', 'BlogController@tkj')->name('tkj');
+Route::GET('mikrotik', 'BlogController@mikrotik')->name('mikrotik');
+Route::GET('bkk', 'BlogController@bkk');
+Route::GET('mpd', 'BlogController@index')->name('mpd');
+Route::GET('learning', 'BlogController@index')->name('learning');
+Route::GET('library', 'BlogController@index')->name('library');
+Route::GET('training', 'BlogController@index')->name('training');
+Route::GET('monitoring', 'BlogController@index')->name('monitoring');
+Route::GET('paskibra', 'BlogController@index')->name('paskibra');
+Route::GET('olahraga', 'BlogController@index')->name('olahraga');
+Route::GET('pmr', 'BlogController@index')->name('pmr');
+Route::GET('pramuka', 'BlogController@index')->name('pramuka');
+Route::GET('tsm', 'BlogController@index')->name('tsm');
+Route::GET('silat', 'BlogController@index')->name('silat');
+Route::GET('seni', 'BlogController@index')->name('seni');
+Route::GET('konfiden', 'BlogController@index')->name('konfiden');
 
 
-Route::GET('/', 'BlogController@index')->name('home');
+// Route::GET('/', 'BlogController@index')->name('home');
 
 
 Route::GET('backup/dapodik', 'BackupController@index');
@@ -35,13 +58,7 @@ Route::GET('import/{param}','ImportController@index');
 Route::GET('import/fingerprint/{role}','ImportController@import_fingerprint');
 Route::POST('import/fingerprint/siswa/{param}','ImportController@import_fingerprint_siswa');
 
-Route::GET('/sejarah', 'BlogController@sejarah');
-Route::GET('/visi', 'BlogController@visi');
-Route::GET('/tav', 'BlogController@tav');
-Route::GET('/tkr', 'BlogController@tkr');
-Route::GET('/tkj', 'BlogController@tkj');
-Route::GET('/mikrotik', 'BlogController@mikrotik');
-Route::GET('/bkk', 'BlogController@bkk');
+
 	// route lokasi
 Route::GET('/provinsi', 'WilayahController@provinsi');
 Route::GET('/kabupaten', 'WilayahController@kabupaten');
@@ -62,7 +79,7 @@ Route::GET('verify/{email}/{verifyToken}','MailController@KirimEmailSukses')->na
 
 // route untuk halaman Login
 // Halaman login
-Route::GET('login', 'LoginController@index')->name('login');
+// Route::GET('login', 'LoginController@index')->name('login');
 Route::POST('/siswa', 'LoginController@login');
 Route::POST('/users', 'LoginController@home');
 
@@ -73,7 +90,7 @@ Route::group(['middleware' => ['auth','checkRole:Siswa,Guru']], function(){
 	Route::GET('/absensi/siswa', 'AbsensiController@siswa')->name('absensiSiswa');
 	Route::GET('/absensi/kalender', 'KalenderController@index');
 	Route::GET('/kalender/absensi/{id}', 'KalenderController@siswa');
-	Route::GET('/profile', 'DashboardController@profile');
+	Route::GET('/profile', 'DashboardController@profile')->name('profile');
 	Route::POST('/alamat', 'SiswaController@update');
 });
 
@@ -158,7 +175,7 @@ Route::POST('/messages', 'ChatsController@sendMessage');
 
 Route::GET('postingan', 'PostinganController@index');
 Route::POST('postingan/baru', 'PostinganController@create');
-Route::GET('postingan/detail/{id}', 'PostinganController@detail');
+Route::GET('postingan/detail/{id}', 'PostinganController@detail')->name('postingan_detail');
 
 Route::GET('ujian','FotoUjianController@index');
 Route::GET('ujian/{kelas}','FotoUjianController@kelas');
@@ -187,4 +204,6 @@ Route::post('/upload_image', function() {
 Route::POST('upload/avatar','UploadController@avatar');
 
 //Logout
-Route::GET('/logout', 'LoginController@logout');
+Route::GET('/logout', 'LoginController@logout')->name('logout');
+
+Auth::routes();

@@ -2,7 +2,7 @@
 @section('content')
 @include('blog.carousel')
 <div class="container">
-    @include('blog.posts.postingan')
+    @include('blog.posts.template1')
     <div class="card-deck">
       <div class="card">
         <div class="mx-auto mt-5">

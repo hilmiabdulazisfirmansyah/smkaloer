@@ -5,6 +5,11 @@
 	@include('layouts.header')
 </head>
 <body>
+	
+	<div class="preloader" style="display: none;">
+		<div class="rounder"></div>
+	</div>
+
 	@include('layouts.navbar')
 	@include('form.Siswa')
 

@@ -4,15 +4,39 @@ use Illuminate\Http\Request;
 use App\Events\WebsocketDemoEvent;
 use App\Posts;
 use App\User;
+use DB;
 
 class BlogController extends Controller
 {
 	
 	public function index()
 	{
-		$posts = Posts::orderBy('created_at','desc')->get();
+		$navbar 		= DB::connection('website')->table('navbar')->get();
+		$carousels 		= DB::connection('website')->table('carousels')->get();
+		$posts 			= DB::connection('website')->table('posts')->get();
+		$pendidik 		= DB::connection('website')->table('guru')->get();
+		$smartschools 	= DB::connection('website')->table('smartschool')->get();
+		$testimonial 	= DB::connection('website')->table('testimoni')->get();
+		$profiles		= DB::connection('website')->table('profiles')->get();
+		$jurusan		= DB::connection('website')->table('jurusan')->get();
+		$program		= DB::connection('website')->table('program')->get();
+		$ekskul			= DB::connection('website')->table('ekskul')->get();
+		$posts 			= Posts::orderBy('created_at','desc')->get();
 
-		return view('blog.home', UserAuth(), compact('posts'));
+		return view('blog.template.website1.index', 
+			compact(
+						'navbar',
+						'carousels',
+						'posts',
+						'pendidik',
+						'smartschools',
+						'testimonial',
+						'profiles',
+						'jurusan',
+						'program',
+						'ekskul'	));
+
+		// return view('blog.home', UserAuth(), compact('posts'));
 	}
 	public function sejarah()
 	{

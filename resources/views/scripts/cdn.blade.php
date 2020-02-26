@@ -1,3 +1,9 @@
+
+<script type="text/javascript" src="{{ asset('template/post/js/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('template/post/js/plugin.js') }}"></script>
+
+<!-- Main Javascript File  -->
+<script type="text/javascript" src="{{ asset('template/post/js/scripts.js') }}"></script>
 {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
 
 <script 
